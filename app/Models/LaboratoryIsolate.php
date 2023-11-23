@@ -13,7 +13,7 @@ class LaboratoryIsolate extends Model
     protected $guarded = [];
 
     protected $dates = [
-        'date_of_susceptibility'
+        'date_of_testing'
     ];
 
 

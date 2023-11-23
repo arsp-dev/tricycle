@@ -21,8 +21,8 @@ class RoleSeeder extends Seeder
     {
         Hospital::create(['hospital_name' => 'Research Institute for Tropical Medicine','hospital_code' => 'dev']); // 1
         Hospital::create(['hospital_name' => 'Research Institute for Tropical Medicine','hospital_code' => 'ARSLAB']); // 2
-        Hospital::create(['hospital_name' => 'Southern Philippines Medical Center','hospital_code' => 'DMC']); // 3
-        Hospital::create(['hospital_name' => 'Vicente Sotto Memorial Medical Center','hospital_code' => 'VSM']); // 4
+        Hospital::create(['hospital_name' => 'Rizal Medical Center','hospital_code' => 'RMC']); // 3
+        // Hospital::create(['hospital_name' => 'Vicente Sotto Memorial Medical Center','hospital_code' => 'VSM']); // 4
 
         Permission::create(['name' => 'encode isolate']);
         Permission::create(['name' => 'view isolate']);
@@ -70,30 +70,17 @@ class RoleSeeder extends Seeder
 
         $laboratory->assignRole($admin);
 
-       $dmc = User::create([
-        'name' => 'DMC',
-        'email' => 'dmc@arsp.com.ph',
-        'password' => Hash::make('@rsp@rsp1111'),
+       $rmc = User::create([
+        'name' => 'RMC',
+        'email' => 'rmc@arsp.com.ph',
+        'password' => Hash::make('rmcrmc1111'),
         ]);
 
-        $dmc->assignRole($sentinel_site);
+        $rmc->assignRole($sentinel_site);
 
-        $dmc->personnel()->create([
+        $rmc->personnel()->create([
             'hospital_id' => 3,
         ]);
-
-
-        $vsm = User::create([
-            'name' => 'VSM',
-            'email' => 'vsm@arsp.com.ph',
-            'password' => Hash::make('@rsp@rsp1111'),
-            ]);
-    
-            $vsm->assignRole($sentinel_site);
-    
-            $vsm->personnel()->create([
-                'hospital_id' => 4,
-            ]);
 
         
         

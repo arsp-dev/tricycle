@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('isolates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('hospital_id')->constrained();
-            $table->text('accession_no');
+            $table->text('patient_id');
 
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by');

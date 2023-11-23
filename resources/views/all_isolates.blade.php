@@ -61,9 +61,8 @@
         <thead>
             @hasanyrole('Super-Admin|admin')
             <tr>
-                <th>Accession #</th>
-                <th>Site Code</th>
                 <th>Patient ID</th>
+                <th>Site Code</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
@@ -72,7 +71,6 @@
             </tr>
             @else
             <tr>
-                <th>Accession #</th>
                 <th>Patient ID</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
@@ -86,9 +84,8 @@
             @hasanyrole('Super-Admin|admin')
             @foreach ($isolates as $isolate)
             <tr>
-              <td><a href="/isolates/{{$isolate->id}}">{{ $isolate->accession_no }}</a> </td>
+              <td><a href="/isolates/{{$isolate->id}}">{{ $isolate->site_isolate()->exists() ? $isolate->patient_id : '---' }}</a></td>
               <td>{{ $isolate->hospital->hospital_code ? $isolate->hospital->hospital_code : '---' }}</td>
-              <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_id : '---' }}</td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_first_name : '---' }}</td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_middle_name : '---' }}</td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_last_name : '---' }}</td>
@@ -104,8 +101,7 @@
             @else
             @foreach ($isolates as $isolate)
             <tr>
-              <td><a href="/isolates/{{$isolate->id}}">{{ $isolate->accession_no }}</a> </td>
-              <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_id : '---' }}</td>
+              <td><a href="/isolates/{{$isolate->id}}">{{ $isolate->site_isolate()->exists() ? $isolate->patient_id : '---' }}</a></td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_first_name : '---' }}</td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_middle_name : '---' }}</td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_last_name : '---' }}</td>
@@ -244,8 +240,8 @@
           @csrf
           <div class="row">
           <div class="form-group">
-        <label for="accession_no">Accession #</label>
-        <input name="accession_no" type="text" class="form-control" id="accession_no" placeholder="Accession #" required>
+        <label for="patient_id">Patient ID</label>
+        <input name="patient_id" type="text" class="form-control" id="patient_id" placeholder="Patient ID" required>
       </div>
           </div>
         </div>

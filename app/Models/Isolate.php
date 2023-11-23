@@ -11,7 +11,7 @@ class Isolate extends Model
     use HasFactory;
 
     protected $fillable = [
-        'accession_no',
+        'patient_id',
         'hospital_id',
         'created_by',
         'updated_by'

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>{{ $isolate->accession_no }} - {!! \Carbon\Carbon::now()->toDayDateTimeString() !!}</title>
+    <title>{{ $isolate->patient_id }} - {!! \Carbon\Carbon::now()->toDayDateTimeString() !!}</title>
     <style>
         .page_break { page-break-before: always; }
     </style>

@@ -25,7 +25,7 @@ class StoreIsolateRequest extends FormRequest
     public function rules()
     {
         return [
-            'accession_no' => 'required|unique:isolates'
+            'patient_id' => 'required|unique:isolates'
         ];
     }
 }

@@ -8,6 +8,7 @@ use App\Models\Hospital;
 use App\Models\Personnel;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreIsolateRequest;
 
@@ -51,10 +52,9 @@ class IsolateController extends Controller
     public function store(StoreIsolateRequest $request)
     {
         $validated_data = $request->validated();
-        
         $created = Isolate::create([
             'hospital_id' => Auth::user()->hasRole(['admin','Super-Admin']) == true ? $request->hospital_id : Auth::user()->personnel->hospital->id ,
-            'accession_no' => $validated_data['accession_no'] 
+            'patient_id' => $validated_data['patient_id'] 
         ]);
 
         $created->site_isolate()->create([]);
@@ -71,21 +71,23 @@ class IsolateController extends Controller
      */
     public function show(Isolate $isolate)
     {
+        $organisms = DB::table('organisms')->get();
+        $specimen_types = DB::table('specimen_types')->get();
         if(Auth::user()->personnel->hospital_id == $isolate->hospital_id)
         {
             $isolate = Isolate::where('id',$isolate->id)->with('site_isolate','lab_isolate')->first();
-            return view('encode_isolate',compact('isolate'));
+            return view('encode_isolate',compact('isolate','organisms','specimen_types'));
         }
 
         if(Auth::user()->hasRole(['admin'])){
             $isolate = Isolate::where('id',$isolate->id)->with('lab_isolate','site_isolate')->first();
-            return view('encode_isolate_laboratory',compact('isolate'));
+            return view('encode_isolate_laboratory',compact('isolate','organisms','specimen_types'));
         }
 
 
         if(Auth::user()->hasRole(['Super-Admin'])){
             $isolate = Isolate::where('id',$isolate->id)->with('lab_isolate','site_isolate')->first();
-            return view('encode_isolate_dev',compact('isolate'));
+            return view('encode_isolate_dev',compact('isolate','organisms','specimen_types'));
         }
 
         return redirect()->route('isolates.index')->with(['info' => 'You are not authorized to get information from that isolate.']);
@@ -138,7 +140,7 @@ class IsolateController extends Controller
 
         $pdf = PDF::loadView('pdf.pdf',compact('isolate','date_now'))->setPaper('a4','landscape');
 
-        return $pdf->download($isolate->accession_no . '-' .Carbon::now()->timezone('Asia/Manila')->toDayDateTimeString() .  '.pdf');
+        return $pdf->download($isolate->patient_id . '-' .Carbon::now()->timezone('Asia/Manila')->toDayDateTimeString() .  '.pdf');
 
     }
 
@@ -152,7 +154,7 @@ class IsolateController extends Controller
 
         $pdf = PDF::loadView('pdf.site_pdf',compact('isolate','date_now'))->setPaper('a4','landscape');
 
-        return $pdf->download($isolate->accession_no . '-' .Carbon::now()->toDayDateTimeString() .  '.pdf');
+        return $pdf->download($isolate->patient_id . '-' .Carbon::now()->toDayDateTimeString() .  '.pdf');
 
     }
 }
