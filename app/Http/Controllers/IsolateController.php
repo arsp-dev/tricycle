@@ -145,6 +145,21 @@ class IsolateController extends Controller
     }
 
 
+    public function createPDFLab(Request $request,$isolate_id)
+    {
+        $isolate = Isolate::where('id',$isolate_id)->with('lab_isolate','site_isolate','hospital')->first();
+        // $hospital = Personnel::where('user_id',Auth::user()->id)->with('hospital')->first();
+        $date_now = Carbon::now()->isoFormat('MM/DD/YYYY');
+        // dd($isolate);
+
+        $pdf = PDF::loadView('pdf.pdf_lab',compact('isolate','date_now'))->setPaper('a4','landscape');
+
+        return $pdf->download($isolate->patient_id . '-' .Carbon::now()->timezone('Asia/Manila')->toDayDateTimeString() .  '.pdf');
+
+    }
+
+
+
     public function createPDFSite(Request $request,$isolate_id)
     {
         $isolate = Isolate::where('id',$isolate_id)->with('lab_isolate','site_isolate','hospital')->first();

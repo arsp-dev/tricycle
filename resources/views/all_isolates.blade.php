@@ -89,7 +89,7 @@
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_first_name : '---' }}</td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_middle_name : '---' }}</td>
               <td>{{ $isolate->site_isolate()->exists() ? $isolate->site_isolate->patient_last_name : '---' }}</td>
-              <td> <a href="/create-pdf/{{ $isolate->id }}">Download PDF</a> </td>
+              <td> <a href="/create-pdf/{{ $isolate->id }}">🔬Download PDF</a> <br> <a href="/create-pdf-lab/{{ $isolate->id }}"> 🧪Lab-Only PDF</a>  </td>
               <td>
                 {!! $isolate->release_status()->exists() ? '<span class="badge bg-success">Encoded and Verified</span>' : '<span class="badge bg-info text-dark">Not yet Verified</span>' !!}
                 
@@ -201,7 +201,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="accession_no">Accession #</label>
-                    <input name="accession_no" type="text" class="form-control form-control-sm" id="accession_no" placeholder="Accession #" required autocomplete="off">
+                    <input  name="accession_no" type="text" class="form-control form-control-sm" id="accession_no" placeholder="Accession #" required autocomplete="off">
                     </div>
             </div>
             <div class="col-md-6">
@@ -241,7 +241,7 @@
           <div class="row">
           <div class="form-group">
         <label for="patient_id">Patient ID</label>
-        <input name="patient_id" type="text" class="form-control" id="patient_id" placeholder="Patient ID" required>
+        <input  name="patient_id" type="text" class="form-control" id="patient_id" placeholder="Patient ID" required>
       </div>
           </div>
         </div>

@@ -43,8 +43,8 @@
                <table class="table table-condensed table-bordered small" style="font-size: 9px;">
                    <thead>
                        <tr>
-                           <th colspan="12">INSTITUTE NAME: {{ Str::of($isolate->hospital->hospital_name)->upper() }}</th>
-                           <th class="text-right" colspan="12">PATIENT ID: {{ $isolate->patient_id }}</th>
+                           <th colspan="14">INSTITUTE NAME: {{ Str::of($isolate->hospital->hospital_name)->upper() }}</th>
+                           <th class="text-right" colspan="13">PATIENT ID: {{ $isolate->patient_id }}</th>
                        </tr> 
                        
                    </thead>
@@ -55,31 +55,31 @@
                      <tr>
                       <th colspan="2" rowspan="2" style="background-color: #D3D3D3; color: black; text-align:center !important">PATIENT INFORMATION</th>
                        {{-- <td colspan="3">Patient ID : {{ $isolate->patient_id }}</td> --}}
-                       <td colspan="4">First Name: {{ $isolate->site_isolate->patient_first_name }}</td>
-                       <td colspan="4">Middle Name: {{ $isolate->site_isolate->patient_middle_name }}</td>
-                       <td colspan="4">Last Name: {{ $isolate->site_isolate->patient_last_name }}</td>
+                       <td colspan="5">First Name: {{ $isolate->site_isolate->patient_first_name }}</td>
+                       <td colspan="5">Middle Name: {{ $isolate->site_isolate->patient_middle_name }}</td>
+                       <td colspan="5">Last Name: {{ $isolate->site_isolate->patient_last_name }}</td>
                        <td colspan="5">Age: {{ $isolate->site_isolate->patient_age }}</td>
                        <td colspan="5">Sex: {{ $isolate->site_isolate->patient_sex }}</td>
                      </tr>
                      <tr>
                       {{-- <th colspan="2" style="background-color: #D3D3D3; color: black;"> </th> --}}
-                      <td colspan="7">Date of Admission: {{ isset($isolate->site_isolate->date_of_admission) ? $isolate->site_isolate->date_of_admission->format('m/d/Y') : '' }}</td>
-                      <td colspan="7">Ward: {{ $isolate->site_isolate->ward }}</td>
-                      <td colspan="8">Attending Physician: {{ $isolate->site_isolate->attending_physician }}</td>
+                      <td colspan="8">Date of Admission: {{ isset($isolate->site_isolate->date_of_admission) ? $isolate->site_isolate->date_of_admission : '' }}</td>
+                      <td colspan="8">Ward: {{ $isolate->site_isolate->ward }}</td>
+                      <td colspan="9">Attending Physician: {{ $isolate->site_isolate->attending_physician }}</td>
                      </tr>
 
                      <tr>
                       <th colspan="2" style="background-color: #D3D3D3; color: black; text-align:center !important">ISOLATE INFORMATION</th>
                        <td colspan="7">Specimen Type: {{ $isolate->site_isolate->specimen_type }}</td>
-                       <td colspan="7">Date of Sample Collection: {{ isset($isolate->site_isolate->date_of_sample_collection) ? $isolate->site_isolate->date_of_sample_collection->format('m/d/Y') : '' }}</td>
-                       <td colspan="8">Date received in ARSRL: {{ isset($isolate->site_isolate->date_received_arsrl) ? $isolate->site_isolate->date_received_arsrl->format('m/d/Y') : '' }}</td>
+                       <td colspan="9">Date of Sample Collection: {{ isset($isolate->site_isolate->date_of_sample_collection) ? $isolate->site_isolate->date_of_sample_collection->format('m/d/Y') : '' }}</td>
+                       <td colspan="9">Date received in ARSRL: {{ isset($isolate->site_isolate->date_received_arsrl) ? $isolate->site_isolate->date_received_arsrl->format('m/d/Y') : '' }}</td>
                      </tr>
             
                      <tr >
                       <th colspan="2" style="background-color: #D3D3D3; color: black; text-align:center !important">CULTURE RESULTS</th>
                       <td colspan="7">Bacterial Identification: {!! $isolate->site_isolate->bacterial_identification !!}</td>
-                      <td colspan="7">ESBL: {{ $isolate->site_isolate->esbl }}</td>
-                      <td colspan="8">Date of Testing: {{ isset($isolate->site_isolate->date_of_testing) ? $isolate->site_isolate->date_of_testing->format('m/d/Y') : '' }}</td>
+                      <td colspan="9">ESBL: {{ $isolate->site_isolate->esbl }}</td>
+                      <td colspan="9">Date of Testing: {{ isset($isolate->site_isolate->date_of_testing) ? $isolate->site_isolate->date_of_testing->format('m/d/Y') : '' }}</td>
                      </tr>
                     
                     
@@ -93,6 +93,7 @@
                       <td > </td>
                       <td>AMK</td>
                       <td>AMP</td>
+                      <td>SAM</td>
                       <td>AMC</td>
                       <td>ATM</td>
                       <td>FEP</td>
@@ -104,7 +105,9 @@
                       <td>CZA</td>
                       <td>CZT</td>
                       <td>CRO</td>
+                      <td>CHL</td>
                       <td>CIP</td>
+                      <td>COL</td>
                       <td>ETP</td>
                       <td>GEN</td>
                       <td>IPM</td>
@@ -121,6 +124,7 @@
                       <td  rowspan="2">Disk (mm)</td>
                        <td> {{ isset($isolate->site_isolate->amk_disk) ? $isolate->site_isolate->amk_disk: '' }}</td>
                        <td> {{ isset($isolate->site_isolate->amp_disk) ? $isolate->site_isolate->amp_disk: '' }}</td>
+                       <td> {{ isset($isolate->site_isolate->sam_disk) ? $isolate->site_isolate->sam_disk: '' }}</td>
                        <td> {{ isset($isolate->site_isolate->amc_disk) ? $isolate->site_isolate->amc_disk: '' }}</td>
                        <td> {{ isset($isolate->site_isolate->atm_disk) ? $isolate->site_isolate->atm_disk: '' }}</td>
                        <td> {{ isset($isolate->site_isolate->fep_disk) ? $isolate->site_isolate->fep_disk: '' }}</td>
@@ -132,7 +136,9 @@
                        <td> {{ isset($isolate->site_isolate->cza_disk) ? $isolate->site_isolate->cza_disk : '' }}</td>
                        <td> {{ isset($isolate->site_isolate->czt_disk) ? $isolate->site_isolate->czt_disk : '' }}</td>
                        <td> {{ isset($isolate->site_isolate->cro_disk) ? $isolate->site_isolate->cro_disk : '' }}</td>
+                       <td> {{ isset($isolate->site_isolate->chl_disk) ? $isolate->site_isolate->chl_disk : '' }}</td>
                        <td> {{ isset($isolate->site_isolate->cip_disk) ? $isolate->site_isolate->cip_disk : '' }}</td>
+                       <td> {{ isset($isolate->site_isolate->col_disk) ? $isolate->site_isolate->col_disk : '' }}</td>
                        <td> {{ isset($isolate->site_isolate->etp_disk) ? $isolate->site_isolate->etp_disk : '' }}</td>
                        <td> {{ isset($isolate->site_isolate->gen_disk) ? $isolate->site_isolate->gen_disk : '' }}</td>
                        <td> {{ isset($isolate->site_isolate->ipm_disk) ? $isolate->site_isolate->ipm_disk : '' }}</td>
@@ -149,6 +155,7 @@
                      
                       <td>{{ isset($isolate->site_isolate->amk_disk_ris) ? $isolate->site_isolate->amk_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->amp_disk_ris) ? $isolate->site_isolate->amp_disk_ris: '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->sam_disk_ris) ? $isolate->site_isolate->sam_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->amc_disk_ris) ? $isolate->site_isolate->amc_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->atm_disk_ris) ? $isolate->site_isolate->atm_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->fep_disk_ris) ? $isolate->site_isolate->fep_disk_ris: '' }}</td>
@@ -160,7 +167,9 @@
                       <td>{{ isset($isolate->site_isolate->cza_disk_ris) ? $isolate->site_isolate->cza_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->czt_disk_ris) ? $isolate->site_isolate->czt_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->cro_disk_ris) ? $isolate->site_isolate->cro_disk_ris: '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->chl_disk_ris) ? $isolate->site_isolate->chl_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->cip_disk_ris) ? $isolate->site_isolate->cip_disk_ris: '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->col_disk_ris) ? $isolate->site_isolate->col_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->etp_disk_ris) ? $isolate->site_isolate->etp_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->gen_disk_ris) ? $isolate->site_isolate->gen_disk_ris: '' }}</td>
                       <td>{{ isset($isolate->site_isolate->ipm_disk_ris) ? $isolate->site_isolate->ipm_disk_ris: '' }}</td>
@@ -176,6 +185,7 @@
                       <td rowspan="2">MIC (ug/ml)</td>
                       <td>{{ isset($isolate->site_isolate->amk_mic_operand) ? $isolate->site_isolate->amk_mic_operand : '' }}{{ isset($isolate->site_isolate->amk_mic) ? $isolate->site_isolate->amk_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->amp_mic_operand) ? $isolate->site_isolate->amp_mic_operand : '' }}{{ isset($isolate->site_isolate->amp_mic) ? $isolate->site_isolate->amp_mic : '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->sam_mic_operand) ? $isolate->site_isolate->sam_mic_operand : '' }}{{ isset($isolate->site_isolate->sam_mic) ? $isolate->site_isolate->sam_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->amc_mic_operand) ? $isolate->site_isolate->amc_mic_operand : '' }}{{ isset($isolate->site_isolate->amc_mic) ? $isolate->site_isolate->amc_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->atm_mic_operand) ? $isolate->site_isolate->atm_mic_operand : '' }}{{ isset($isolate->site_isolate->atm_mic) ? $isolate->site_isolate->atm_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->fep_mic_operand) ? $isolate->site_isolate->fep_mic_operand : '' }}{{ isset($isolate->site_isolate->fep_mic) ? $isolate->site_isolate->fep_mic : '' }}</td>
@@ -187,7 +197,9 @@
                       <td>{{ isset($isolate->site_isolate->cza_mic_operand) ? $isolate->site_isolate->cza_mic_operand : '' }}{{ isset($isolate->site_isolate->cza_mic) ? $isolate->site_isolate->cza_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->czt_mic_operand) ? $isolate->site_isolate->czt_mic_operand : '' }}{{ isset($isolate->site_isolate->czt_mic) ? $isolate->site_isolate->czt_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->cro_mic_operand) ? $isolate->site_isolate->cro_mic_operand : '' }}{{ isset($isolate->site_isolate->cro_mic) ? $isolate->site_isolate->cro_mic : '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->chl_mic_operand) ? $isolate->site_isolate->chl_mic_operand : '' }}{{ isset($isolate->site_isolate->chl_mic) ? $isolate->site_isolate->chl_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->cip_mic_operand) ? $isolate->site_isolate->cip_mic_operand : '' }}{{ isset($isolate->site_isolate->cip_mic) ? $isolate->site_isolate->cip_mic : '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->col_mic_operand) ? $isolate->site_isolate->col_mic_operand : '' }}{{ isset($isolate->site_isolate->col_mic) ? $isolate->site_isolate->col_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->etp_mic_operand) ? $isolate->site_isolate->etp_mic_operand : '' }}{{ isset($isolate->site_isolate->etp_mic) ? $isolate->site_isolate->etp_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->gen_mic_operand) ? $isolate->site_isolate->gen_mic_operand : '' }}{{ isset($isolate->site_isolate->gen_mic) ? $isolate->site_isolate->gen_mic : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->ipm_mic_operand) ? $isolate->site_isolate->ipm_mic_operand : '' }}{{ isset($isolate->site_isolate->ipm_mic) ? $isolate->site_isolate->ipm_mic : '' }}</td>
@@ -204,6 +216,7 @@
                      
                       <td>{{ isset($isolate->site_isolate->amk_mic_ris) ? $isolate->site_isolate->amk_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->amp_mic_ris) ? $isolate->site_isolate->amp_mic_ris : '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->sam_mic_ris) ? $isolate->site_isolate->sam_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->amc_mic_ris) ? $isolate->site_isolate->amc_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->atm_mic_ris) ? $isolate->site_isolate->atm_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->fep_mic_ris) ? $isolate->site_isolate->fep_mic_ris : '' }}</td>
@@ -215,7 +228,9 @@
                       <td>{{ isset($isolate->site_isolate->cza_mic_ris) ? $isolate->site_isolate->cza_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->czt_mic_ris) ? $isolate->site_isolate->czt_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->cro_mic_ris) ? $isolate->site_isolate->cro_mic_ris : '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->chl_mic_ris) ? $isolate->site_isolate->chl_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->cip_mic_ris) ? $isolate->site_isolate->cip_mic_ris : '' }}</td>
+                      <td>{{ isset($isolate->site_isolate->col_mic_ris) ? $isolate->site_isolate->col_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->etp_mic_ris) ? $isolate->site_isolate->etp_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->gen_mic_ris) ? $isolate->site_isolate->gen_mic_ris : '' }}</td>
                       <td>{{ isset($isolate->site_isolate->ipm_mic_ris) ? $isolate->site_isolate->ipm_mic_ris : '' }}</td>
@@ -324,9 +339,10 @@
 
                       <tr>
                         <th colspan="2" style="background-color: #D3D3D3; color: black;"></th>
-                        <td colspan="7">Date Released: {{ isset($isolate->site_isolate->date_released) ? $isolate->site_isolate->date_released->format('m/d/Y') : '' }}</td>
-                        <td colspan="7">Verified by: {{ $isolate->site_isolate->verified_by }}</td>
-                        <td colspan="8">Noted by: {{ $isolate->site_isolate->noted_by }}</td>
+                        <td colspan="7">Remarks: {{ isset($isolate->site_isolate->remarks) ? $isolate->site_isolate->remarks : '' }}</td>
+                        <td colspan="6">Date Released: {{ isset($isolate->site_isolate->date_released) ? $isolate->site_isolate->date_released->format('m/d/Y') : '' }}</td>
+                        <td colspan="6">Verified by: {{ $isolate->site_isolate->verified_by }}</td>
+                        <td colspan="6">Noted by: {{ $isolate->site_isolate->noted_by }}</td>
                        
                       </tr>
 
@@ -473,6 +489,22 @@
                     <td  style="border: none; padding-right: 50px;">GEN</td>
                     <td  style="border: none; padding-right: 50px;">-></td>
                     <td  style="border: none; padding-right: 50px;">Gentamicin</td>
+
+     
+                    <td style="border: none; padding-right: 50px;">COL</td>
+                    <td  style="border: none; padding-right: 50px;">-></td>
+                    <td  style="border: none; padding-right: 50px;">Colistin</td>
+               
+                  </tr>
+
+                  <tr>
+                    <td  style="border: none; padding-right: 50px;">SAM </td>
+                    <td  style="border: none; padding-right: 50px;">-></td>
+                    <td  style="border: none; padding-right: 50px;">Ampicilin-Sulbactam</td>
+
+                    <td  style="border: none; padding-right: 50px;">CHL</td>
+                    <td  style="border: none; padding-right: 50px;">-></td>
+                    <td  style="border: none; padding-right: 50px;">Chloramphenicol</td>
 
      
                     <td style="border: none; padding-right: 50px;"></td>

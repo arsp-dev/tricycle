@@ -52,7 +52,7 @@
 
 <div class="qc form-group col-md-4">
   <label for="date_of_admission">Date of Admission</label>
-  <input type="date" class="qc form-control form-control-sm {{ isset($isolate->site_isolate->date_of_admission) & $isolate->site_isolate->date_of_admission != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->date_of_admission) ? $isolate->site_isolate->date_of_admission->toDateString()  : '' }}" id="date_of_admission" name="date_of_admission" placeholder="Date of Birth (e.g. mm/dd/yyyy)" autocomplete="off">
+  <input type="date" class="qc form-control form-control-sm {{ isset($isolate->site_isolate->date_of_admission) & $isolate->site_isolate->date_of_admission != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->date_of_admission) ? $isolate->site_isolate->date_of_admission  : '' }}" id="date_of_admission" name="date_of_admission"  autocomplete="off">
 </div>
 
 <div class="form-group col-md-2">
@@ -222,6 +222,7 @@
               <option {{ isset($isolate->site_isolate->amk_disk_ris) & $isolate->site_isolate->amk_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->amk_disk_ris) & $isolate->site_isolate->amk_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->amk_disk_ris) & $isolate->site_isolate->amk_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->amk_disk_ris) & $isolate->site_isolate->amk_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
             <td>
               <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->amk_mic_operand) & $isolate->site_isolate->amk_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="amk_mic_operand">
@@ -240,6 +241,7 @@
               <option {{ isset($isolate->site_isolate->amk_mic_ris) & $isolate->site_isolate->amk_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->amk_mic_ris) & $isolate->site_isolate->amk_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->amk_mic_ris) & $isolate->site_isolate->amk_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->amk_mic_ris) & $isolate->site_isolate->amk_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
           </tr>
 
@@ -253,6 +255,7 @@
               <option {{ isset($isolate->site_isolate->amp_disk_ris) & $isolate->site_isolate->amp_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->amp_disk_ris) & $isolate->site_isolate->amp_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->amp_disk_ris) & $isolate->site_isolate->amp_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->amp_disk_ris) & $isolate->site_isolate->amp_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
             <td>
               <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->amp_mic_operand) & $isolate->site_isolate->amp_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="amp_mic_operand">
@@ -271,9 +274,43 @@
               <option {{ isset($isolate->site_isolate->amp_mic_ris) & $isolate->site_isolate->amp_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->amp_mic_ris) & $isolate->site_isolate->amp_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->amp_mic_ris) & $isolate->site_isolate->amp_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->amp_mic_ris) & $isolate->site_isolate->amp_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
           </tr>
 
+
+          <tr>
+            <td>Ampicillin-Sulbactam</td>
+            <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->sam_disk) & $isolate->site_isolate->sam_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->sam_disk) ? $isolate->site_isolate->sam_disk  : '' }}" type="number" step="any"  min="0.0"  name="sam_disk" id="" autocomplete="off"></td>
+            {{-- <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->sam_disk_ris) & $isolate->site_isolate->sam_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->sam_disk_ris) ? $isolate->site_isolate->sam_disk_ris  : '' }}" type="text" name="sam_disk_ris" id=""></td> --}}
+            <td><select class=" form-select form-select-sm {{ isset($isolate->site_isolate->sam_disk_ris) & $isolate->site_isolate->sam_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg exsamle" name="sam_disk_ris">
+              <option selected> </option>
+              <option {{ isset($isolate->site_isolate->sam_disk_ris) & $isolate->site_isolate->sam_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+              <option {{ isset($isolate->site_isolate->sam_disk_ris) & $isolate->site_isolate->sam_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+              <option {{ isset($isolate->site_isolate->sam_disk_ris) & $isolate->site_isolate->sam_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+              <option {{ isset($isolate->site_isolate->sam_disk_ris) & $isolate->site_isolate->sam_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->sam_disk_ris) & $isolate->site_isolate->sam_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+            </select></td>
+            <td>
+              <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->sam_mic_operand) & $isolate->site_isolate->sam_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg exsamle" name="sam_mic_operand">
+                <option selected> </option>
+                <option {{ isset($isolate->site_isolate->sam_mic_operand) & $isolate->site_isolate->sam_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+                <option {{ isset($isolate->site_isolate->sam_mic_operand) & $isolate->site_isolate->sam_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+                <option {{ isset($isolate->site_isolate->sam_mic_operand) & $isolate->site_isolate->sam_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+                <option {{ isset($isolate->site_isolate->sam_mic_operand) & $isolate->site_isolate->sam_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+              </select>
+            </td>
+            <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->sam_mic) & $isolate->site_isolate->sam_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->sam_mic) ? $isolate->site_isolate->sam_mic  : '' }}" type="number" step="any"   name="sam_mic" id="" autocomplete="off"></td>
+            {{-- <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->sam_mic_ris) & $isolate->site_isolate->sam_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->sam_mic_ris) ? $isolate->site_isolate->sam_mic_ris  : '' }}" type="text" name="sam_mic_ris" id=""></td> --}}
+            <td><select class=" form-select form-select-sm {{ isset($isolate->site_isolate->sam_mic_ris) & $isolate->site_isolate->sam_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg exsamle" name="sam_mic_ris">
+              <option selected> </option>
+              <option {{ isset($isolate->site_isolate->sam_mic_ris) & $isolate->site_isolate->sam_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+              <option {{ isset($isolate->site_isolate->sam_mic_ris) & $isolate->site_isolate->sam_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+              <option {{ isset($isolate->site_isolate->sam_mic_ris) & $isolate->site_isolate->sam_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+              <option {{ isset($isolate->site_isolate->sam_mic_ris) & $isolate->site_isolate->sam_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->sam_mic_ris) & $isolate->site_isolate->sam_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+            </select></td>
+          </tr>
 
           <tr>
             <td>Amoxicillin-clavulanic acid</td>
@@ -285,6 +322,7 @@
               <option {{ isset($isolate->site_isolate->amc_disk_ris) & $isolate->site_isolate->amc_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->amc_disk_ris) & $isolate->site_isolate->amc_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->amc_disk_ris) & $isolate->site_isolate->amc_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->amc_disk_ris) & $isolate->site_isolate->amc_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
             <td>
               <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->amc_mic_operand) & $isolate->site_isolate->amc_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="amc_mic_operand">
@@ -303,6 +341,7 @@
               <option {{ isset($isolate->site_isolate->amc_mic_ris) & $isolate->site_isolate->amc_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->amc_mic_ris) & $isolate->site_isolate->amc_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->amc_mic_ris) & $isolate->site_isolate->amc_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->amc_mic_ris) & $isolate->site_isolate->amc_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
           </tr>
 
@@ -317,6 +356,7 @@
               <option {{ isset($isolate->site_isolate->atm_disk_ris) & $isolate->site_isolate->atm_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->atm_disk_ris) & $isolate->site_isolate->atm_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->atm_disk_ris) & $isolate->site_isolate->atm_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->atm_disk_ris) & $isolate->site_isolate->atm_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
             <td>
               <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->atm_mic_operand) & $isolate->site_isolate->atm_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="atm_mic_operand">
@@ -335,6 +375,7 @@
               <option {{ isset($isolate->site_isolate->atm_mic_ris) & $isolate->site_isolate->atm_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->atm_mic_ris) & $isolate->site_isolate->atm_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->atm_mic_ris) & $isolate->site_isolate->atm_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->atm_mic_ris) & $isolate->site_isolate->atm_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
           </tr>
 
@@ -350,6 +391,7 @@
               <option {{ isset($isolate->site_isolate->fep_disk_ris) & $isolate->site_isolate->fep_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->fep_disk_ris) & $isolate->site_isolate->fep_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->fep_disk_ris) & $isolate->site_isolate->fep_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->fep_disk_ris) & $isolate->site_isolate->fep_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
             <td>
               <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->fep_mic_operand) & $isolate->site_isolate->fep_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="fep_mic_operand">
@@ -368,6 +410,7 @@
               <option {{ isset($isolate->site_isolate->fep_mic_ris) & $isolate->site_isolate->fep_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
               <option {{ isset($isolate->site_isolate->fep_mic_ris) & $isolate->site_isolate->fep_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
               <option {{ isset($isolate->site_isolate->fep_mic_ris) & $isolate->site_isolate->fep_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+              <option {{ isset($isolate->site_isolate->fep_mic_ris) & $isolate->site_isolate->fep_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
             </select></td>
           </tr>
 
@@ -383,6 +426,7 @@
             <option {{ isset($isolate->site_isolate->ctx_disk_ris) & $isolate->site_isolate->ctx_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->ctx_disk_ris) & $isolate->site_isolate->ctx_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->ctx_disk_ris) & $isolate->site_isolate->ctx_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->ctx_disk_ris) & $isolate->site_isolate->ctx_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->ctx_mic_operand) & $isolate->site_isolate->ctx_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="ctx_mic_operand">
@@ -401,6 +445,7 @@
             <option {{ isset($isolate->site_isolate->ctx_mic_ris) & $isolate->site_isolate->ctx_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->ctx_mic_ris) & $isolate->site_isolate->ctx_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->ctx_mic_ris) & $isolate->site_isolate->ctx_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->ctx_mic_ris) & $isolate->site_isolate->ctx_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -414,6 +459,7 @@
             <option {{ isset($isolate->site_isolate->fox_disk_ris) & $isolate->site_isolate->fox_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->fox_disk_ris) & $isolate->site_isolate->fox_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->fox_disk_ris) & $isolate->site_isolate->fox_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->fox_disk_ris) & $isolate->site_isolate->fox_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->fox_mic_operand) & $isolate->site_isolate->fox_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="fox_mic_operand">
@@ -432,6 +478,7 @@
             <option {{ isset($isolate->site_isolate->fox_mic_ris) & $isolate->site_isolate->fox_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->fox_mic_ris) & $isolate->site_isolate->fox_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->fox_mic_ris) & $isolate->site_isolate->fox_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->fox_mic_ris) & $isolate->site_isolate->fox_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
  
@@ -445,6 +492,7 @@
             <option {{ isset($isolate->site_isolate->cxa_disk_ris) & $isolate->site_isolate->cxa_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cxa_disk_ris) & $isolate->site_isolate->cxa_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cxa_disk_ris) & $isolate->site_isolate->cxa_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cxa_disk_ris) & $isolate->site_isolate->cxa_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->cxa_mic_operand) & $isolate->site_isolate->cxa_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cxa_mic_operand">
@@ -463,6 +511,7 @@
             <option {{ isset($isolate->site_isolate->cxa_mic_ris) & $isolate->site_isolate->cxa_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cxa_mic_ris) & $isolate->site_isolate->cxa_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cxa_mic_ris) & $isolate->site_isolate->cxa_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cxa_mic_ris) & $isolate->site_isolate->cxa_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -478,6 +527,7 @@
             <option {{ isset($isolate->site_isolate->caz_disk_ris) & $isolate->site_isolate->caz_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->caz_disk_ris) & $isolate->site_isolate->caz_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->caz_disk_ris) & $isolate->site_isolate->caz_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->caz_disk_ris) & $isolate->site_isolate->caz_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->caz_mic_operand) & $isolate->site_isolate->caz_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="caz_mic_operand">
@@ -496,6 +546,7 @@
             <option {{ isset($isolate->site_isolate->caz_mic_ris) & $isolate->site_isolate->caz_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->caz_mic_ris) & $isolate->site_isolate->caz_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->caz_mic_ris) & $isolate->site_isolate->caz_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->caz_mic_ris) & $isolate->site_isolate->caz_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -509,6 +560,7 @@
             <option {{ isset($isolate->site_isolate->czo_disk_ris) & $isolate->site_isolate->czo_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->czo_disk_ris) & $isolate->site_isolate->czo_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->czo_disk_ris) & $isolate->site_isolate->czo_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->czo_disk_ris) & $isolate->site_isolate->czo_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->czo_mic_operand) & $isolate->site_isolate->czo_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="czo_mic_operand">
@@ -527,6 +579,7 @@
             <option {{ isset($isolate->site_isolate->czo_mic_ris) & $isolate->site_isolate->czo_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->czo_mic_ris) & $isolate->site_isolate->czo_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->czo_mic_ris) & $isolate->site_isolate->czo_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->czo_mic_ris) & $isolate->site_isolate->czo_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -541,6 +594,7 @@
             <option {{ isset($isolate->site_isolate->cza_disk_ris) & $isolate->site_isolate->cza_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cza_disk_ris) & $isolate->site_isolate->cza_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cza_disk_ris) & $isolate->site_isolate->cza_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cza_disk_ris) & $isolate->site_isolate->cza_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->cza_mic_operand) & $isolate->site_isolate->cza_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cza_mic_operand">
@@ -559,6 +613,7 @@
             <option {{ isset($isolate->site_isolate->cza_mic_ris) & $isolate->site_isolate->cza_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cza_mic_ris) & $isolate->site_isolate->cza_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cza_mic_ris) & $isolate->site_isolate->cza_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cza_mic_ris) & $isolate->site_isolate->cza_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -573,6 +628,7 @@
             <option {{ isset($isolate->site_isolate->czt_disk_ris) & $isolate->site_isolate->czt_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->czt_disk_ris) & $isolate->site_isolate->czt_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->czt_disk_ris) & $isolate->site_isolate->czt_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->czt_disk_ris) & $isolate->site_isolate->czt_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->czt_mic_operand) & $isolate->site_isolate->czt_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="czt_mic_operand">
@@ -591,6 +647,7 @@
             <option {{ isset($isolate->site_isolate->czt_mic_ris) & $isolate->site_isolate->czt_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->czt_mic_ris) & $isolate->site_isolate->czt_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->czt_mic_ris) & $isolate->site_isolate->czt_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->czt_mic_ris) & $isolate->site_isolate->czt_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -605,6 +662,7 @@
             <option {{ isset($isolate->site_isolate->cro_disk_ris) & $isolate->site_isolate->cro_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cro_disk_ris) & $isolate->site_isolate->cro_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cro_disk_ris) & $isolate->site_isolate->cro_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cro_disk_ris) & $isolate->site_isolate->cro_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->cro_mic_operand) & $isolate->site_isolate->cro_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cro_mic_operand">
@@ -623,8 +681,44 @@
             <option {{ isset($isolate->site_isolate->cro_mic_ris) & $isolate->site_isolate->cro_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cro_mic_ris) & $isolate->site_isolate->cro_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cro_mic_ris) & $isolate->site_isolate->cro_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cro_mic_ris) & $isolate->site_isolate->cro_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
+
+
+        <tr>
+          <td>Chloramphenicol</td>
+          <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->chl_disk) & $isolate->site_isolate->chl_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->chl_disk) ? $isolate->site_isolate->chl_disk  : '' }}" type="number" step="any"  min="0.0"  name="chl_disk" id="" autocomplete="off"></td>
+          {{-- <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->chl_disk_ris) & $isolate->site_isolate->chl_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->chl_disk_ris) ? $isolate->site_isolate->chl_disk_ris  : '' }}" type="text" name="chl_disk_ris" id=""></td> --}}
+          <td><select class=" form-select form-select-sm {{ isset($isolate->site_isolate->chl_disk_ris) & $isolate->site_isolate->chl_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="chl_disk_ris">
+            <option selected> </option>
+            <option {{ isset($isolate->site_isolate->chl_disk_ris) & $isolate->site_isolate->chl_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+            <option {{ isset($isolate->site_isolate->chl_disk_ris) & $isolate->site_isolate->chl_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+            <option {{ isset($isolate->site_isolate->chl_disk_ris) & $isolate->site_isolate->chl_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+            <option {{ isset($isolate->site_isolate->chl_disk_ris) & $isolate->site_isolate->chl_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->chl_disk_ris) & $isolate->site_isolate->chl_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+          </select></td>
+          <td>
+            <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->chl_mic_operand) & $isolate->site_isolate->chl_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="chl_mic_operand">
+              <option selected> </option>
+              <option {{ isset($isolate->site_isolate->chl_mic_operand) & $isolate->site_isolate->chl_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+              <option {{ isset($isolate->site_isolate->chl_mic_operand) & $isolate->site_isolate->chl_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+              <option {{ isset($isolate->site_isolate->chl_mic_operand) & $isolate->site_isolate->chl_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+              <option {{ isset($isolate->site_isolate->chl_mic_operand) & $isolate->site_isolate->chl_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+            </select>
+          </td>
+          <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->chl_mic) & $isolate->site_isolate->chl_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->chl_mic) ? $isolate->site_isolate->chl_mic  : '' }}" type="number" step="any"    name="chl_mic" id="" autocomplete="off"></td>
+          {{-- <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->chl_mic_ris) & $isolate->site_isolate->chl_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->chl_mic_ris) ? $isolate->site_isolate->chl_mic_ris  : '' }}" type="text" name="chl_mic_ris" id=""></td> --}}
+          <td><select class=" form-select form-select-sm {{ isset($isolate->site_isolate->chl_mic_ris) & $isolate->site_isolate->chl_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="chl_mic_ris">
+            <option selected> </option>
+            <option {{ isset($isolate->site_isolate->chl_mic_ris) & $isolate->site_isolate->chl_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+            <option {{ isset($isolate->site_isolate->chl_mic_ris) & $isolate->site_isolate->chl_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+            <option {{ isset($isolate->site_isolate->chl_mic_ris) & $isolate->site_isolate->chl_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+            <option {{ isset($isolate->site_isolate->chl_mic_ris) & $isolate->site_isolate->chl_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->chl_mic_ris) & $isolate->site_isolate->chl_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+          </select></td>
+        </tr>
+
 
 
         
@@ -638,6 +732,7 @@
             <option {{ isset($isolate->site_isolate->cip_disk_ris) & $isolate->site_isolate->cip_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cip_disk_ris) & $isolate->site_isolate->cip_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cip_disk_ris) & $isolate->site_isolate->cip_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cip_disk_ris) & $isolate->site_isolate->cip_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->cip_mic_operand) & $isolate->site_isolate->cip_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cip_mic_operand">
@@ -656,6 +751,41 @@
             <option {{ isset($isolate->site_isolate->cip_mic_ris) & $isolate->site_isolate->cip_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->cip_mic_ris) & $isolate->site_isolate->cip_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->cip_mic_ris) & $isolate->site_isolate->cip_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->cip_mic_ris) & $isolate->site_isolate->cip_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+          </select></td>
+        </tr>
+
+
+        <tr>
+          <td>Colisitin</td>
+          <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->col_disk) & $isolate->site_isolate->col_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->col_disk) ? $isolate->site_isolate->col_disk  : '' }}" type="number" step="any"  min="0.0"  name="col_disk" id="" autocomplete="off"></td>
+          {{-- <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->col_disk_ris) & $isolate->site_isolate->col_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->col_disk_ris) ? $isolate->site_isolate->col_disk_ris  : '' }}" type="text" name="col_disk_ris" id=""></td> --}}
+          <td><select class=" form-select form-select-sm {{ isset($isolate->site_isolate->col_disk_ris) & $isolate->site_isolate->col_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="col_disk_ris">
+            <option selected> </option>
+            <option {{ isset($isolate->site_isolate->col_disk_ris) & $isolate->site_isolate->col_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+            <option {{ isset($isolate->site_isolate->col_disk_ris) & $isolate->site_isolate->col_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+            <option {{ isset($isolate->site_isolate->col_disk_ris) & $isolate->site_isolate->col_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+            <option {{ isset($isolate->site_isolate->col_disk_ris) & $isolate->site_isolate->col_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->col_disk_ris) & $isolate->site_isolate->col_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+          </select></td>
+          <td>
+            <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->col_mic_operand) & $isolate->site_isolate->col_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="col_mic_operand">
+              <option selected> </option>
+              <option {{ isset($isolate->site_isolate->col_mic_operand) & $isolate->site_isolate->col_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+              <option {{ isset($isolate->site_isolate->col_mic_operand) & $isolate->site_isolate->col_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+              <option {{ isset($isolate->site_isolate->col_mic_operand) & $isolate->site_isolate->col_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+              <option {{ isset($isolate->site_isolate->col_mic_operand) & $isolate->site_isolate->col_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+            </select>
+          </td>
+          <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->col_mic) & $isolate->site_isolate->col_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->col_mic) ? $isolate->site_isolate->col_mic  : '' }}" type="number" step="any"    name="col_mic" id="" autocomplete="off"></td>
+          {{-- <td><input class="form-control form-control-sm {{ isset($isolate->site_isolate->col_mic_ris) & $isolate->site_isolate->col_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->site_isolate->col_mic_ris) ? $isolate->site_isolate->col_mic_ris  : '' }}" type="text" name="col_mic_ris" id=""></td> --}}
+          <td><select class=" form-select form-select-sm {{ isset($isolate->site_isolate->col_mic_ris) & $isolate->site_isolate->col_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="col_mic_ris">
+            <option selected> </option>
+            <option {{ isset($isolate->site_isolate->col_mic_ris) & $isolate->site_isolate->col_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+            <option {{ isset($isolate->site_isolate->col_mic_ris) & $isolate->site_isolate->col_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+            <option {{ isset($isolate->site_isolate->col_mic_ris) & $isolate->site_isolate->col_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+            <option {{ isset($isolate->site_isolate->col_mic_ris) & $isolate->site_isolate->col_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->col_mic_ris) & $isolate->site_isolate->col_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -670,6 +800,7 @@
             <option {{ isset($isolate->site_isolate->etp_disk_ris) & $isolate->site_isolate->etp_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->etp_disk_ris) & $isolate->site_isolate->etp_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->etp_disk_ris) & $isolate->site_isolate->etp_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->etp_disk_ris) & $isolate->site_isolate->etp_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->etp_mic_operand) & $isolate->site_isolate->etp_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="etp_mic_operand">
@@ -688,6 +819,7 @@
             <option {{ isset($isolate->site_isolate->etp_mic_ris) & $isolate->site_isolate->etp_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->etp_mic_ris) & $isolate->site_isolate->etp_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->etp_mic_ris) & $isolate->site_isolate->etp_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->etp_mic_ris) & $isolate->site_isolate->etp_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -702,6 +834,7 @@
             <option {{ isset($isolate->site_isolate->gen_disk_ris) & $isolate->site_isolate->gen_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->gen_disk_ris) & $isolate->site_isolate->gen_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->gen_disk_ris) & $isolate->site_isolate->gen_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->gen_disk_ris) & $isolate->site_isolate->gen_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->gen_mic_operand) & $isolate->site_isolate->gen_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="gen_mic_operand">
@@ -720,6 +853,7 @@
             <option {{ isset($isolate->site_isolate->gen_mic_ris) & $isolate->site_isolate->gen_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->gen_mic_ris) & $isolate->site_isolate->gen_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->gen_mic_ris) & $isolate->site_isolate->gen_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->gen_mic_ris) & $isolate->site_isolate->gen_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -733,6 +867,7 @@
             <option {{ isset($isolate->site_isolate->ipm_disk_ris) & $isolate->site_isolate->ipm_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->ipm_disk_ris) & $isolate->site_isolate->ipm_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->ipm_disk_ris) & $isolate->site_isolate->ipm_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->ipm_disk_ris) & $isolate->site_isolate->ipm_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->ipm_mic_operand) & $isolate->site_isolate->ipm_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="ipm_mic_operand">
@@ -751,6 +886,7 @@
             <option {{ isset($isolate->site_isolate->ipm_mic_ris) & $isolate->site_isolate->ipm_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->ipm_mic_ris) & $isolate->site_isolate->ipm_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->ipm_mic_ris) & $isolate->site_isolate->ipm_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->ipm_mic_ris) & $isolate->site_isolate->ipm_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -765,6 +901,7 @@
             <option {{ isset($isolate->site_isolate->lvx_disk_ris) & $isolate->site_isolate->lvx_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->lvx_disk_ris) & $isolate->site_isolate->lvx_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->lvx_disk_ris) & $isolate->site_isolate->lvx_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->lvx_disk_ris) & $isolate->site_isolate->lvx_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->lvx_mic_operand) & $isolate->site_isolate->lvx_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="lvx_mic_operand">
@@ -783,6 +920,7 @@
             <option {{ isset($isolate->site_isolate->lvx_mic_ris) & $isolate->site_isolate->lvx_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->lvx_mic_ris) & $isolate->site_isolate->lvx_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->lvx_mic_ris) & $isolate->site_isolate->lvx_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->lvx_mic_ris) & $isolate->site_isolate->lvx_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -797,6 +935,7 @@
             <option {{ isset($isolate->site_isolate->mem_disk_ris) & $isolate->site_isolate->mem_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->mem_disk_ris) & $isolate->site_isolate->mem_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->mem_disk_ris) & $isolate->site_isolate->mem_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->mem_disk_ris) & $isolate->site_isolate->mem_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->mem_mic_operand) & $isolate->site_isolate->mem_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="mem_mic_operand">
@@ -815,6 +954,7 @@
             <option {{ isset($isolate->site_isolate->mem_mic_ris) & $isolate->site_isolate->mem_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->mem_mic_ris) & $isolate->site_isolate->mem_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->mem_mic_ris) & $isolate->site_isolate->mem_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->mem_mic_ris) & $isolate->site_isolate->mem_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -829,6 +969,7 @@
             <option {{ isset($isolate->site_isolate->tzp_disk_ris) & $isolate->site_isolate->tzp_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->tzp_disk_ris) & $isolate->site_isolate->tzp_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->tzp_disk_ris) & $isolate->site_isolate->tzp_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->tzp_disk_ris) & $isolate->site_isolate->tzp_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->tzp_mic_operand) & $isolate->site_isolate->tzp_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tzp_mic_operand">
@@ -847,6 +988,7 @@
             <option {{ isset($isolate->site_isolate->tzp_mic_ris) & $isolate->site_isolate->tzp_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->tzp_mic_ris) & $isolate->site_isolate->tzp_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->tzp_mic_ris) & $isolate->site_isolate->tzp_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->tzp_mic_ris) & $isolate->site_isolate->tzp_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -861,6 +1003,7 @@
             <option {{ isset($isolate->site_isolate->tet_disk_ris) & $isolate->site_isolate->tet_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->tet_disk_ris) & $isolate->site_isolate->tet_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->tet_disk_ris) & $isolate->site_isolate->tet_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->tet_disk_ris) & $isolate->site_isolate->tet_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->tet_mic_operand) & $isolate->site_isolate->tet_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tet_mic_operand">
@@ -879,6 +1022,7 @@
             <option {{ isset($isolate->site_isolate->tet_mic_ris) & $isolate->site_isolate->tet_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->tet_mic_ris) & $isolate->site_isolate->tet_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->tet_mic_ris) & $isolate->site_isolate->tet_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->tet_mic_ris) & $isolate->site_isolate->tet_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -893,6 +1037,7 @@
             <option {{ isset($isolate->site_isolate->tob_disk_ris) & $isolate->site_isolate->tob_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->tob_disk_ris) & $isolate->site_isolate->tob_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->tob_disk_ris) & $isolate->site_isolate->tob_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->tob_disk_ris) & $isolate->site_isolate->tob_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->tob_mic_operand) & $isolate->site_isolate->tob_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tob_mic_operand">
@@ -911,6 +1056,7 @@
             <option {{ isset($isolate->site_isolate->tob_mic_ris) & $isolate->site_isolate->tob_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->tob_mic_ris) & $isolate->site_isolate->tob_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->tob_mic_ris) & $isolate->site_isolate->tob_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->tob_mic_ris) & $isolate->site_isolate->tob_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -925,6 +1071,7 @@
             <option {{ isset($isolate->site_isolate->sxt_disk_ris) & $isolate->site_isolate->sxt_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->sxt_disk_ris) & $isolate->site_isolate->sxt_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->sxt_disk_ris) & $isolate->site_isolate->sxt_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->sxt_disk_ris) & $isolate->site_isolate->sxt_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
           <td>
             <select class=" form-select form-select-sm {{ isset($isolate->site_isolate->sxt_mic_operand) & $isolate->site_isolate->sxt_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="sxt_mic_operand">
@@ -943,6 +1090,7 @@
             <option {{ isset($isolate->site_isolate->sxt_mic_ris) & $isolate->site_isolate->sxt_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
             <option {{ isset($isolate->site_isolate->sxt_mic_ris) & $isolate->site_isolate->sxt_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
             <option {{ isset($isolate->site_isolate->sxt_mic_ris) & $isolate->site_isolate->sxt_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+            <option {{ isset($isolate->site_isolate->sxt_mic_ris) & $isolate->site_isolate->sxt_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
           </select></td>
         </tr>
 
@@ -959,15 +1107,19 @@
 </div>
 
 <div class="row mb-2">
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-6">
+    <label for="verified_by">Remarks:</label>
+    <input type="text" class="form-control form-control-sm {{ isset($isolate->site_isolate->remarks) & $isolate->site_isolate->remarks != '' ? 'is-valid' : '' }}"  value="{{ isset($isolate->site_isolate->remarks) ? $isolate->site_isolate->remarks  : '' }}" id="remarks" name="remarks" placeholder="Remarks:">
+  </div>
+  <div class="form-group col-md-2">
     <label for="verified_by">Verified by:</label>
     <input type="text" class="form-control form-control-sm {{ isset($isolate->site_isolate->verified_by) & $isolate->site_isolate->verified_by != '' ? 'is-valid' : '' }}"  value="{{ isset($isolate->site_isolate->verified_by) ? $isolate->site_isolate->verified_by  : '' }}" id="verified_by" name="verified_by" placeholder="Verified by:">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="noted_by">Noted by:</label>
     <input type="text" class="form-control form-control-sm {{ isset($isolate->site_isolate->noted_by) & $isolate->site_isolate->noted_by != '' ? 'is-valid' : '' }}"  value="{{ isset($isolate->site_isolate->noted_by) ? $isolate->site_isolate->noted_by  : '' }}" id="noted_by" name="noted_by" placeholder="Noted by:">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="date_released">Date Released</label>
     <input type="date"class="form-control form-control-sm {{ isset($isolate->site_isolate->date_released) & $isolate->site_isolate->date_released != '' ? 'is-valid' : '' }}"  value="{{ isset($isolate->site_isolate->date_released) ? $isolate->site_isolate->date_released->toDateString()  : '' }}" id="date_released" name="date_released" placeholder="Date Released (e.g. mm/dd/yyyy)">
   </div>
@@ -1027,6 +1179,13 @@
                         <td>{{ isset($isolate->lab_isolate->amp_disk_ris) ? $isolate->lab_isolate->amp_disk_ris  : '' }}</td>
                         <td>{{ isset($isolate->lab_isolate->amp_mic_operand) ? $isolate->lab_isolate->amp_mic_operand  : '' }}{{ isset($isolate->lab_isolate->amp_mic) ? $isolate->lab_isolate->amp_mic  : '' }}</td>
                         <td>{{ isset($isolate->lab_isolate->amp_mic_ris) ? $isolate->lab_isolate->amp_mic_ris  : '' }}</td>
+                      </tr>
+                      <tr>
+                        <td>Ampicillin-Sulbactam</td>
+                        <td>{{ isset($isolate->lab_isolate->sam_disk) ? $isolate->lab_isolate->sam_disk  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->sam_disk_ris) ? $isolate->lab_isolate->sam_disk_ris  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->sam_mic_operand) ? $isolate->lab_isolate->sam_mic_operand  : '' }}{{ isset($isolate->lab_isolate->sam_mic) ? $isolate->lab_isolate->sam_mic  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->sam_mic_ris) ? $isolate->lab_isolate->sam_mic_ris  : '' }}</td>
                       </tr>
                       <tr>
                         <td>Amoxicillin-clavulanic acid</td>
@@ -1106,11 +1265,26 @@
                         <td>{{ isset($isolate->lab_isolate->cro_mic_ris) ? $isolate->lab_isolate->cro_mic_ris  : '' }}</td>
                       </tr>
                       <tr>
+                        <td>Chloramphenicol</td>
+                        <td>{{ isset($isolate->lab_isolate->chl_disk) ? $isolate->lab_isolate->chl_disk  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->chl_disk_ris) ? $isolate->lab_isolate->chl_disk_ris  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->chl_mic_operand) ? $isolate->lab_isolate->chl_mic_operand  : '' }}{{ isset($isolate->lab_isolate->chl_mic) ? $isolate->lab_isolate->chl_mic  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->chl_mic_ris) ? $isolate->lab_isolate->chl_mic_ris  : '' }}</td>
+                      </tr>
+                      <tr>
                         <td>Ciprofloxacin</td>
                         <td>{{ isset($isolate->lab_isolate->cip_disk) ? $isolate->lab_isolate->cip_disk  : '' }}</td>
                         <td>{{ isset($isolate->lab_isolate->cip_disk_ris) ? $isolate->lab_isolate->cip_disk_ris  : '' }}</td>
                         <td>{{ isset($isolate->lab_isolate->cip_mic_operand) ? $isolate->lab_isolate->cip_mic_operand  : '' }}{{ isset($isolate->lab_isolate->cip_mic) ? $isolate->lab_isolate->cip_mic  : '' }}</td>
                         <td>{{ isset($isolate->lab_isolate->cip_mic_ris) ? $isolate->lab_isolate->cip_mic_ris  : '' }}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Colistin</td>
+                        <td>{{ isset($isolate->lab_isolate->col_disk) ? $isolate->lab_isolate->col_disk  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->col_disk_ris) ? $isolate->lab_isolate->col_disk_ris  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->col_mic_operand) ? $isolate->lab_isolate->col_mic_operand  : '' }}{{ isset($isolate->lab_isolate->col_mic) ? $isolate->lab_isolate->col_mic  : '' }}</td>
+                        <td>{{ isset($isolate->lab_isolate->col_mic_ris) ? $isolate->lab_isolate->col_mic_ris  : '' }}</td>
                       </tr>
                       <tr>
                         <td>Ertapenem</td>
@@ -1254,6 +1428,7 @@
             <div class="form-group col-md-4 mb-3">
               {{-- <label for="acccession_no">Download PDF ({{  $isolate->accession_no }})</label> --}}
               <a class="btn btn-primary" href='/create-pdf/{{ $isolate->id }}'  >Download PDF ({{  $isolate->patient_id }})</a>
+              <a class="btn btn-primary" href='/create-pdf-lab/{{ $isolate->id }}'  >Lab-Only PDF ({{  $isolate->patient_id }})</a>
             </div>
           
             </div>
@@ -1314,6 +1489,7 @@
                           <option {{ isset($isolate->lab_isolate->amk_disk_ris) & $isolate->lab_isolate->amk_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->amk_disk_ris) & $isolate->lab_isolate->amk_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->amk_disk_ris) & $isolate->lab_isolate->amk_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->amk_disk_ris) & $isolate->lab_isolate->amk_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                         <td>
                           <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->amk_mic_operand) & $isolate->lab_isolate->amk_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="amk_mic_operand">
@@ -1332,6 +1508,7 @@
                           <option {{ isset($isolate->lab_isolate->amk_mic_ris) & $isolate->lab_isolate->amk_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->amk_mic_ris) & $isolate->lab_isolate->amk_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->amk_mic_ris) & $isolate->lab_isolate->amk_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->amk_mic_ris) & $isolate->lab_isolate->amk_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                       </tr>
         
@@ -1345,6 +1522,7 @@
                           <option {{ isset($isolate->lab_isolate->amp_disk_ris) & $isolate->lab_isolate->amp_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->amp_disk_ris) & $isolate->lab_isolate->amp_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->amp_disk_ris) & $isolate->lab_isolate->amp_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->amp_disk_ris) & $isolate->lab_isolate->amp_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                         <td>
                           <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->amp_mic_operand) & $isolate->lab_isolate->amp_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="amp_mic_operand">
@@ -1363,8 +1541,44 @@
                           <option {{ isset($isolate->lab_isolate->amp_mic_ris) & $isolate->lab_isolate->amp_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->amp_mic_ris) & $isolate->lab_isolate->amp_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->amp_mic_ris) & $isolate->lab_isolate->amp_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->amp_mic_ris) & $isolate->lab_isolate->amp_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                       </tr>
+
+
+                      <tr>
+                        <td>Ampicillin-Sulbactam</td>
+                        <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->sam_disk) & $isolate->lab_isolate->sam_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->sam_disk) ? $isolate->lab_isolate->sam_disk  : '' }}" type="number" step="any"  min="0.0"  name="sam_disk" id="" autocomplete="off"></td>
+                        {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->sam_disk_ris) & $isolate->lab_isolate->sam_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->sam_disk_ris) ? $isolate->lab_isolate->sam_disk_ris  : '' }}" type="text" name="sam_disk_ris" id=""></td> --}}
+                        <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->sam_disk_ris) & $isolate->lab_isolate->sam_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg exsamle" name="sam_disk_ris">
+                          <option selected> </option>
+                          <option {{ isset($isolate->lab_isolate->sam_disk_ris) & $isolate->lab_isolate->sam_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                          <option {{ isset($isolate->lab_isolate->sam_disk_ris) & $isolate->lab_isolate->sam_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                          <option {{ isset($isolate->lab_isolate->sam_disk_ris) & $isolate->lab_isolate->sam_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                          <option {{ isset($isolate->lab_isolate->sam_disk_ris) & $isolate->lab_isolate->sam_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->sam_disk_ris) & $isolate->lab_isolate->sam_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                        </select></td>
+                        <td>
+                          <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->sam_mic_operand) & $isolate->lab_isolate->sam_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg exsamle" name="sam_mic_operand">
+                            <option selected> </option>
+                            <option {{ isset($isolate->lab_isolate->sam_mic_operand) & $isolate->lab_isolate->sam_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+                            <option {{ isset($isolate->lab_isolate->sam_mic_operand) & $isolate->lab_isolate->sam_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+                            <option {{ isset($isolate->lab_isolate->sam_mic_operand) & $isolate->lab_isolate->sam_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+                            <option {{ isset($isolate->lab_isolate->sam_mic_operand) & $isolate->lab_isolate->sam_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+                          </select>
+                        </td>
+                        <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->sam_mic) & $isolate->lab_isolate->sam_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->sam_mic) ? $isolate->lab_isolate->sam_mic  : '' }}" type="number" step="any"   name="sam_mic" id="" autocomplete="off"></td>
+                        {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->sam_mic_ris) & $isolate->lab_isolate->sam_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->sam_mic_ris) ? $isolate->lab_isolate->sam_mic_ris  : '' }}" type="text" name="sam_mic_ris" id=""></td> --}}
+                        <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->sam_mic_ris) & $isolate->lab_isolate->sam_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg exsamle" name="sam_mic_ris">
+                          <option selected> </option>
+                          <option {{ isset($isolate->lab_isolate->sam_mic_ris) & $isolate->lab_isolate->sam_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                          <option {{ isset($isolate->lab_isolate->sam_mic_ris) & $isolate->lab_isolate->sam_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                          <option {{ isset($isolate->lab_isolate->sam_mic_ris) & $isolate->lab_isolate->sam_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                          <option {{ isset($isolate->lab_isolate->sam_mic_ris) & $isolate->lab_isolate->sam_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->sam_mic_ris) & $isolate->lab_isolate->sam_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                        </select></td>
+                      </tr>
+        
         
         
                       <tr>
@@ -1377,6 +1591,7 @@
                           <option {{ isset($isolate->lab_isolate->amc_disk_ris) & $isolate->lab_isolate->amc_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->amc_disk_ris) & $isolate->lab_isolate->amc_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->amc_disk_ris) & $isolate->lab_isolate->amc_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->amc_disk_ris) & $isolate->lab_isolate->amc_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                         <td>
                           <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->amc_mic_operand) & $isolate->lab_isolate->amc_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="amc_mic_operand">
@@ -1395,6 +1610,7 @@
                           <option {{ isset($isolate->lab_isolate->amc_mic_ris) & $isolate->lab_isolate->amc_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->amc_mic_ris) & $isolate->lab_isolate->amc_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->amc_mic_ris) & $isolate->lab_isolate->amc_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->amc_mic_ris) & $isolate->lab_isolate->amc_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                       </tr>
         
@@ -1409,6 +1625,7 @@
                           <option {{ isset($isolate->lab_isolate->atm_disk_ris) & $isolate->lab_isolate->atm_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->atm_disk_ris) & $isolate->lab_isolate->atm_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->atm_disk_ris) & $isolate->lab_isolate->atm_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->atm_disk_ris) & $isolate->lab_isolate->atm_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                         <td>
                           <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->atm_mic_operand) & $isolate->lab_isolate->atm_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="atm_mic_operand">
@@ -1427,6 +1644,7 @@
                           <option {{ isset($isolate->lab_isolate->atm_mic_ris) & $isolate->lab_isolate->atm_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->atm_mic_ris) & $isolate->lab_isolate->atm_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->atm_mic_ris) & $isolate->lab_isolate->atm_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->atm_mic_ris) & $isolate->lab_isolate->atm_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                       </tr>
         
@@ -1442,6 +1660,7 @@
                           <option {{ isset($isolate->lab_isolate->fep_disk_ris) & $isolate->lab_isolate->fep_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->fep_disk_ris) & $isolate->lab_isolate->fep_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->fep_disk_ris) & $isolate->lab_isolate->fep_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->fep_disk_ris) & $isolate->lab_isolate->fep_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                         <td>
                           <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->fep_mic_operand) & $isolate->lab_isolate->fep_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="fep_mic_operand">
@@ -1460,6 +1679,7 @@
                           <option {{ isset($isolate->lab_isolate->fep_mic_ris) & $isolate->lab_isolate->fep_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                           <option {{ isset($isolate->lab_isolate->fep_mic_ris) & $isolate->lab_isolate->fep_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                           <option {{ isset($isolate->lab_isolate->fep_mic_ris) & $isolate->lab_isolate->fep_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                          <option {{ isset($isolate->lab_isolate->fep_mic_ris) & $isolate->lab_isolate->fep_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                         </select></td>
                       </tr>
         
@@ -1475,6 +1695,7 @@
                         <option {{ isset($isolate->lab_isolate->ctx_disk_ris) & $isolate->lab_isolate->ctx_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->ctx_disk_ris) & $isolate->lab_isolate->ctx_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->ctx_disk_ris) & $isolate->lab_isolate->ctx_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->ctx_disk_ris) & $isolate->lab_isolate->ctx_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->ctx_mic_operand) & $isolate->lab_isolate->ctx_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="ctx_mic_operand">
@@ -1493,6 +1714,41 @@
                         <option {{ isset($isolate->lab_isolate->ctx_mic_ris) & $isolate->lab_isolate->ctx_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->ctx_mic_ris) & $isolate->lab_isolate->ctx_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->ctx_mic_ris) & $isolate->lab_isolate->ctx_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->ctx_mic_ris) & $isolate->lab_isolate->ctx_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                    </tr>
+
+
+                    <tr>
+                      <td>Cefotaxime/Cefotaxime + Clavulanic Acid</td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->ct_ctl_disk) & $isolate->lab_isolate->ct_ctl_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->ct_ctl_disk) ? $isolate->lab_isolate->ct_ctl_disk  : '' }}" type="number" step="any"  min="6.00"  name="ct_ctl_disk" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) & $isolate->lab_isolate->ct_ctl_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->ct_ctl_disk_ris) ? $isolate->lab_isolate->ct_ctl_disk_ris  : '' }}" type="text" name="ct_ctl_disk_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) & $isolate->lab_isolate->ct_ctl_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="ct_ctl_disk_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) & $isolate->lab_isolate->ct_ctl_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) & $isolate->lab_isolate->ct_ctl_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) & $isolate->lab_isolate->ct_ctl_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) & $isolate->lab_isolate->ct_ctl_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) & $isolate->lab_isolate->ct_ctl_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                      <td>
+                        <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->ct_ctl_mic_operand) & $isolate->lab_isolate->ct_ctl_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="ct_ctl_mic_operand">
+                          <option selected> </option>
+                          <option {{ isset($isolate->lab_isolate->ct_ctl_mic_operand) & $isolate->lab_isolate->ct_ctl_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+                          <option {{ isset($isolate->lab_isolate->ct_ctl_mic_operand) & $isolate->lab_isolate->ct_ctl_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+                          <option {{ isset($isolate->lab_isolate->ct_ctl_mic_operand) & $isolate->lab_isolate->ct_ctl_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+                          <option {{ isset($isolate->lab_isolate->ct_ctl_mic_operand) & $isolate->lab_isolate->ct_ctl_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+                        </select>
+                      </td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->ct_ctl_mic) & $isolate->lab_isolate->ct_ctl_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->ct_ctl_mic) ? $isolate->lab_isolate->ct_ctl_mic  : '' }}" type="number" step="any"   name="ct_ctl_mic" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) & $isolate->lab_isolate->ct_ctl_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->ct_ctl_mic_ris) ? $isolate->lab_isolate->ct_ctl_mic_ris  : '' }}" type="text" name="ct_ctl_mic_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) & $isolate->lab_isolate->ct_ctl_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="ct_ctl_mic_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) & $isolate->lab_isolate->ct_ctl_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) & $isolate->lab_isolate->ct_ctl_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) & $isolate->lab_isolate->ct_ctl_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) & $isolate->lab_isolate->ct_ctl_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) & $isolate->lab_isolate->ct_ctl_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
           
@@ -1506,6 +1762,7 @@
                         <option {{ isset($isolate->lab_isolate->fox_disk_ris) & $isolate->lab_isolate->fox_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->fox_disk_ris) & $isolate->lab_isolate->fox_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->fox_disk_ris) & $isolate->lab_isolate->fox_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->fox_disk_ris) & $isolate->lab_isolate->fox_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->fox_mic_operand) & $isolate->lab_isolate->fox_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="fox_mic_operand">
@@ -1524,6 +1781,7 @@
                         <option {{ isset($isolate->lab_isolate->fox_mic_ris) & $isolate->lab_isolate->fox_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->fox_mic_ris) & $isolate->lab_isolate->fox_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->fox_mic_ris) & $isolate->lab_isolate->fox_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->fox_mic_ris) & $isolate->lab_isolate->fox_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
              
@@ -1537,6 +1795,7 @@
                         <option {{ isset($isolate->lab_isolate->cxa_disk_ris) & $isolate->lab_isolate->cxa_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cxa_disk_ris) & $isolate->lab_isolate->cxa_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cxa_disk_ris) & $isolate->lab_isolate->cxa_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cxa_disk_ris) & $isolate->lab_isolate->cxa_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->cxa_mic_operand) & $isolate->lab_isolate->cxa_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cxa_mic_operand">
@@ -1555,6 +1814,7 @@
                         <option {{ isset($isolate->lab_isolate->cxa_mic_ris) & $isolate->lab_isolate->cxa_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cxa_mic_ris) & $isolate->lab_isolate->cxa_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cxa_mic_ris) & $isolate->lab_isolate->cxa_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cxa_mic_ris) & $isolate->lab_isolate->cxa_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1570,6 +1830,7 @@
                         <option {{ isset($isolate->lab_isolate->caz_disk_ris) & $isolate->lab_isolate->caz_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->caz_disk_ris) & $isolate->lab_isolate->caz_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->caz_disk_ris) & $isolate->lab_isolate->caz_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->caz_disk_ris) & $isolate->lab_isolate->caz_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->caz_mic_operand) & $isolate->lab_isolate->caz_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="caz_mic_operand">
@@ -1588,6 +1849,41 @@
                         <option {{ isset($isolate->lab_isolate->caz_mic_ris) & $isolate->lab_isolate->caz_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->caz_mic_ris) & $isolate->lab_isolate->caz_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->caz_mic_ris) & $isolate->lab_isolate->caz_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->caz_mic_ris) & $isolate->lab_isolate->caz_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                    </tr>
+
+
+                    <tr>
+                      <td>Ceftazidime/Ceftazidime + Clavulanic Acid</td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->tz_tzl_disk) & $isolate->lab_isolate->tz_tzl_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->tz_tzl_disk) ? $isolate->lab_isolate->tz_tzl_disk  : '' }}" type="number" step="any"  min="0.0"  name="tz_tzl_disk" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) & $isolate->lab_isolate->tz_tzl_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->tz_tzl_disk_ris) ? $isolate->lab_isolate->tz_tzl_disk_ris  : '' }}" type="text" name="tz_tzl_disk_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) & $isolate->lab_isolate->tz_tzl_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tz_tzl_disk_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) & $isolate->lab_isolate->tz_tzl_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) & $isolate->lab_isolate->tz_tzl_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) & $isolate->lab_isolate->tz_tzl_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) & $isolate->lab_isolate->tz_tzl_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) & $isolate->lab_isolate->tz_tzl_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                      <td>
+                        <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->tz_tzl_mic_operand) & $isolate->lab_isolate->tz_tzl_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tz_tzl_mic_operand">
+                          <option selected> </option>
+                          <option {{ isset($isolate->lab_isolate->tz_tzl_mic_operand) & $isolate->lab_isolate->tz_tzl_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+                          <option {{ isset($isolate->lab_isolate->tz_tzl_mic_operand) & $isolate->lab_isolate->tz_tzl_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+                          <option {{ isset($isolate->lab_isolate->tz_tzl_mic_operand) & $isolate->lab_isolate->tz_tzl_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+                          <option {{ isset($isolate->lab_isolate->tz_tzl_mic_operand) & $isolate->lab_isolate->tz_tzl_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+                        </select>
+                      </td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->tz_tzl_mic) & $isolate->lab_isolate->tz_tzl_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->tz_tzl_mic) ? $isolate->lab_isolate->tz_tzl_mic  : '' }}" type="number" step="any"    name="tz_tzl_mic" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) & $isolate->lab_isolate->tz_tzl_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->tz_tzl_mic_ris) ? $isolate->lab_isolate->tz_tzl_mic_ris  : '' }}" type="text" name="tz_tzl_mic_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) & $isolate->lab_isolate->tz_tzl_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tz_tzl_mic_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) & $isolate->lab_isolate->tz_tzl_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) & $isolate->lab_isolate->tz_tzl_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) & $isolate->lab_isolate->tz_tzl_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) & $isolate->lab_isolate->tz_tzl_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) & $isolate->lab_isolate->tz_tzl_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1601,6 +1897,7 @@
                         <option {{ isset($isolate->lab_isolate->czo_disk_ris) & $isolate->lab_isolate->czo_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->czo_disk_ris) & $isolate->lab_isolate->czo_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->czo_disk_ris) & $isolate->lab_isolate->czo_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->czo_disk_ris) & $isolate->lab_isolate->czo_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->czo_mic_operand) & $isolate->lab_isolate->czo_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="czo_mic_operand">
@@ -1619,6 +1916,7 @@
                         <option {{ isset($isolate->lab_isolate->czo_mic_ris) & $isolate->lab_isolate->czo_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->czo_mic_ris) & $isolate->lab_isolate->czo_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->czo_mic_ris) & $isolate->lab_isolate->czo_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->czo_mic_ris) & $isolate->lab_isolate->czo_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1633,6 +1931,7 @@
                         <option {{ isset($isolate->lab_isolate->cza_disk_ris) & $isolate->lab_isolate->cza_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cza_disk_ris) & $isolate->lab_isolate->cza_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cza_disk_ris) & $isolate->lab_isolate->cza_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cza_disk_ris) & $isolate->lab_isolate->cza_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->cza_mic_operand) & $isolate->lab_isolate->cza_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cza_mic_operand">
@@ -1651,6 +1950,7 @@
                         <option {{ isset($isolate->lab_isolate->cza_mic_ris) & $isolate->lab_isolate->cza_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cza_mic_ris) & $isolate->lab_isolate->cza_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cza_mic_ris) & $isolate->lab_isolate->cza_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cza_mic_ris) & $isolate->lab_isolate->cza_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1665,6 +1965,7 @@
                         <option {{ isset($isolate->lab_isolate->czt_disk_ris) & $isolate->lab_isolate->czt_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->czt_disk_ris) & $isolate->lab_isolate->czt_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->czt_disk_ris) & $isolate->lab_isolate->czt_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->czt_disk_ris) & $isolate->lab_isolate->czt_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->czt_mic_operand) & $isolate->lab_isolate->czt_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="czt_mic_operand">
@@ -1683,6 +1984,7 @@
                         <option {{ isset($isolate->lab_isolate->czt_mic_ris) & $isolate->lab_isolate->czt_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->czt_mic_ris) & $isolate->lab_isolate->czt_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->czt_mic_ris) & $isolate->lab_isolate->czt_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->czt_mic_ris) & $isolate->lab_isolate->czt_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1697,6 +1999,7 @@
                         <option {{ isset($isolate->lab_isolate->cro_disk_ris) & $isolate->lab_isolate->cro_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cro_disk_ris) & $isolate->lab_isolate->cro_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cro_disk_ris) & $isolate->lab_isolate->cro_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cro_disk_ris) & $isolate->lab_isolate->cro_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->cro_mic_operand) & $isolate->lab_isolate->cro_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cro_mic_operand">
@@ -1715,6 +2018,41 @@
                         <option {{ isset($isolate->lab_isolate->cro_mic_ris) & $isolate->lab_isolate->cro_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cro_mic_ris) & $isolate->lab_isolate->cro_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cro_mic_ris) & $isolate->lab_isolate->cro_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cro_mic_ris) & $isolate->lab_isolate->cro_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                    </tr>
+
+
+                    <tr>
+                      <td>Chloramphenicol</td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->chl_disk) & $isolate->lab_isolate->chl_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->chl_disk) ? $isolate->lab_isolate->chl_disk  : '' }}" type="number" step="any"  min="0.0"  name="chl_disk" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->chl_disk_ris) & $isolate->lab_isolate->chl_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->chl_disk_ris) ? $isolate->lab_isolate->chl_disk_ris  : '' }}" type="text" name="chl_disk_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->chl_disk_ris) & $isolate->lab_isolate->chl_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="chl_disk_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->chl_disk_ris) & $isolate->lab_isolate->chl_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->chl_disk_ris) & $isolate->lab_isolate->chl_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->chl_disk_ris) & $isolate->lab_isolate->chl_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->chl_disk_ris) & $isolate->lab_isolate->chl_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->chl_disk_ris) & $isolate->lab_isolate->chl_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                      <td>
+                        <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->chl_mic_operand) & $isolate->lab_isolate->chl_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="chl_mic_operand">
+                          <option selected> </option>
+                          <option {{ isset($isolate->lab_isolate->chl_mic_operand) & $isolate->lab_isolate->chl_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+                          <option {{ isset($isolate->lab_isolate->chl_mic_operand) & $isolate->lab_isolate->chl_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+                          <option {{ isset($isolate->lab_isolate->chl_mic_operand) & $isolate->lab_isolate->chl_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+                          <option {{ isset($isolate->lab_isolate->chl_mic_operand) & $isolate->lab_isolate->chl_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+                        </select>
+                      </td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->chl_mic) & $isolate->lab_isolate->chl_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->chl_mic) ? $isolate->lab_isolate->chl_mic  : '' }}" type="number" step="any"    name="chl_mic" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->chl_mic_ris) & $isolate->lab_isolate->chl_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->chl_mic_ris) ? $isolate->lab_isolate->chl_mic_ris  : '' }}" type="text" name="chl_mic_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->chl_mic_ris) & $isolate->lab_isolate->chl_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="chl_mic_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->chl_mic_ris) & $isolate->lab_isolate->chl_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->chl_mic_ris) & $isolate->lab_isolate->chl_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->chl_mic_ris) & $isolate->lab_isolate->chl_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->chl_mic_ris) & $isolate->lab_isolate->chl_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->chl_mic_ris) & $isolate->lab_isolate->chl_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1730,6 +2068,7 @@
                         <option {{ isset($isolate->lab_isolate->cip_disk_ris) & $isolate->lab_isolate->cip_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cip_disk_ris) & $isolate->lab_isolate->cip_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cip_disk_ris) & $isolate->lab_isolate->cip_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cip_disk_ris) & $isolate->lab_isolate->cip_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->cip_mic_operand) & $isolate->lab_isolate->cip_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="cip_mic_operand">
@@ -1748,8 +2087,44 @@
                         <option {{ isset($isolate->lab_isolate->cip_mic_ris) & $isolate->lab_isolate->cip_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->cip_mic_ris) & $isolate->lab_isolate->cip_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->cip_mic_ris) & $isolate->lab_isolate->cip_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->cip_mic_ris) & $isolate->lab_isolate->cip_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
+
+
+                    <tr>
+                      <td>Colistin</td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->col_disk) & $isolate->lab_isolate->col_disk != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->col_disk) ? $isolate->lab_isolate->col_disk  : '' }}" type="number" step="any"  min="0.0"  name="col_disk" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->col_disk_ris) & $isolate->lab_isolate->col_disk_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->col_disk_ris) ? $isolate->lab_isolate->col_disk_ris  : '' }}" type="text" name="col_disk_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->col_disk_ris) & $isolate->lab_isolate->col_disk_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="col_disk_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->col_disk_ris) & $isolate->lab_isolate->col_disk_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->col_disk_ris) & $isolate->lab_isolate->col_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->col_disk_ris) & $isolate->lab_isolate->col_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->col_disk_ris) & $isolate->lab_isolate->col_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->col_disk_ris) & $isolate->lab_isolate->col_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                      <td>
+                        <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->col_mic_operand) & $isolate->lab_isolate->col_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="col_mic_operand">
+                          <option selected> </option>
+                          <option {{ isset($isolate->lab_isolate->col_mic_operand) & $isolate->lab_isolate->col_mic_operand == '>' ? 'selected'  : '' }} value=">">></option>
+                          <option {{ isset($isolate->lab_isolate->col_mic_operand) & $isolate->lab_isolate->col_mic_operand == '<' ? 'selected'  : '' }} value="<"><</option>
+                          <option {{ isset($isolate->lab_isolate->col_mic_operand) & $isolate->lab_isolate->col_mic_operand == '>=' ? 'selected'  : '' }} value=">=">>=</option>
+                          <option {{ isset($isolate->lab_isolate->col_mic_operand) & $isolate->lab_isolate->col_mic_operand == '<=' ? 'selected'  : '' }} value="<="><=</option>
+                        </select>
+                      </td>
+                      <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->col_mic) & $isolate->lab_isolate->col_mic != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->col_mic) ? $isolate->lab_isolate->col_mic  : '' }}" type="number" step="any"    name="col_mic" id="" autocomplete="off"></td>
+                      {{-- <td><input class="form-control form-control-sm {{ isset($isolate->lab_isolate->col_mic_ris) & $isolate->lab_isolate->col_mic_ris != '' ? 'is-valid' : '' }}" value="{{ isset($isolate->lab_isolate->col_mic_ris) ? $isolate->lab_isolate->col_mic_ris  : '' }}" type="text" name="col_mic_ris" id=""></td> --}}
+                      <td><select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->col_mic_ris) & $isolate->lab_isolate->col_mic_ris != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="col_mic_ris">
+                        <option selected> </option>
+                        <option {{ isset($isolate->lab_isolate->col_mic_ris) & $isolate->lab_isolate->col_mic_ris == 'R' ? 'selected'  : '' }} value="R">R</option>
+                        <option {{ isset($isolate->lab_isolate->col_mic_ris) & $isolate->lab_isolate->col_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
+                        <option {{ isset($isolate->lab_isolate->col_mic_ris) & $isolate->lab_isolate->col_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
+                        <option {{ isset($isolate->lab_isolate->col_mic_ris) & $isolate->lab_isolate->col_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->col_mic_ris) & $isolate->lab_isolate->col_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
+                      </select></td>
+                    </tr>
+        
         
         
                     <tr>
@@ -1762,6 +2137,7 @@
                         <option {{ isset($isolate->lab_isolate->etp_disk_ris) & $isolate->lab_isolate->etp_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->etp_disk_ris) & $isolate->lab_isolate->etp_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->etp_disk_ris) & $isolate->lab_isolate->etp_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->etp_disk_ris) & $isolate->lab_isolate->etp_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->etp_mic_operand) & $isolate->lab_isolate->etp_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="etp_mic_operand">
@@ -1780,6 +2156,7 @@
                         <option {{ isset($isolate->lab_isolate->etp_mic_ris) & $isolate->lab_isolate->etp_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->etp_mic_ris) & $isolate->lab_isolate->etp_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->etp_mic_ris) & $isolate->lab_isolate->etp_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->etp_mic_ris) & $isolate->lab_isolate->etp_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1794,6 +2171,7 @@
                         <option {{ isset($isolate->lab_isolate->gen_disk_ris) & $isolate->lab_isolate->gen_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->gen_disk_ris) & $isolate->lab_isolate->gen_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->gen_disk_ris) & $isolate->lab_isolate->gen_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->gen_disk_ris) & $isolate->lab_isolate->gen_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->gen_mic_operand) & $isolate->lab_isolate->gen_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="gen_mic_operand">
@@ -1812,6 +2190,7 @@
                         <option {{ isset($isolate->lab_isolate->gen_mic_ris) & $isolate->lab_isolate->gen_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->gen_mic_ris) & $isolate->lab_isolate->gen_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->gen_mic_ris) & $isolate->lab_isolate->gen_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->gen_mic_ris) & $isolate->lab_isolate->gen_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1825,6 +2204,7 @@
                         <option {{ isset($isolate->lab_isolate->ipm_disk_ris) & $isolate->lab_isolate->ipm_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->ipm_disk_ris) & $isolate->lab_isolate->ipm_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->ipm_disk_ris) & $isolate->lab_isolate->ipm_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->ipm_disk_ris) & $isolate->lab_isolate->ipm_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->ipm_mic_operand) & $isolate->lab_isolate->ipm_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="ipm_mic_operand">
@@ -1843,6 +2223,7 @@
                         <option {{ isset($isolate->lab_isolate->ipm_mic_ris) & $isolate->lab_isolate->ipm_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->ipm_mic_ris) & $isolate->lab_isolate->ipm_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->ipm_mic_ris) & $isolate->lab_isolate->ipm_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->ipm_mic_ris) & $isolate->lab_isolate->ipm_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1857,6 +2238,7 @@
                         <option {{ isset($isolate->lab_isolate->lvx_disk_ris) & $isolate->lab_isolate->lvx_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->lvx_disk_ris) & $isolate->lab_isolate->lvx_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->lvx_disk_ris) & $isolate->lab_isolate->lvx_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->lvx_disk_ris) & $isolate->lab_isolate->lvx_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->lvx_mic_operand) & $isolate->lab_isolate->lvx_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="lvx_mic_operand">
@@ -1875,6 +2257,7 @@
                         <option {{ isset($isolate->lab_isolate->lvx_mic_ris) & $isolate->lab_isolate->lvx_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->lvx_mic_ris) & $isolate->lab_isolate->lvx_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->lvx_mic_ris) & $isolate->lab_isolate->lvx_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->lvx_mic_ris) & $isolate->lab_isolate->lvx_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1889,6 +2272,7 @@
                         <option {{ isset($isolate->lab_isolate->mem_disk_ris) & $isolate->lab_isolate->mem_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->mem_disk_ris) & $isolate->lab_isolate->mem_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->mem_disk_ris) & $isolate->lab_isolate->mem_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->mem_disk_ris) & $isolate->lab_isolate->mem_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->mem_mic_operand) & $isolate->lab_isolate->mem_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="mem_mic_operand">
@@ -1907,6 +2291,7 @@
                         <option {{ isset($isolate->lab_isolate->mem_mic_ris) & $isolate->lab_isolate->mem_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->mem_mic_ris) & $isolate->lab_isolate->mem_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->mem_mic_ris) & $isolate->lab_isolate->mem_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->mem_mic_ris) & $isolate->lab_isolate->mem_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1921,6 +2306,7 @@
                         <option {{ isset($isolate->lab_isolate->tzp_disk_ris) & $isolate->lab_isolate->tzp_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->tzp_disk_ris) & $isolate->lab_isolate->tzp_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->tzp_disk_ris) & $isolate->lab_isolate->tzp_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tzp_disk_ris) & $isolate->lab_isolate->tzp_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->tzp_mic_operand) & $isolate->lab_isolate->tzp_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tzp_mic_operand">
@@ -1939,6 +2325,7 @@
                         <option {{ isset($isolate->lab_isolate->tzp_mic_ris) & $isolate->lab_isolate->tzp_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->tzp_mic_ris) & $isolate->lab_isolate->tzp_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->tzp_mic_ris) & $isolate->lab_isolate->tzp_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tzp_mic_ris) & $isolate->lab_isolate->tzp_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1953,6 +2340,7 @@
                         <option {{ isset($isolate->lab_isolate->tet_disk_ris) & $isolate->lab_isolate->tet_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->tet_disk_ris) & $isolate->lab_isolate->tet_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->tet_disk_ris) & $isolate->lab_isolate->tet_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tet_disk_ris) & $isolate->lab_isolate->tet_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->tet_mic_operand) & $isolate->lab_isolate->tet_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tet_mic_operand">
@@ -1971,6 +2359,7 @@
                         <option {{ isset($isolate->lab_isolate->tet_mic_ris) & $isolate->lab_isolate->tet_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->tet_mic_ris) & $isolate->lab_isolate->tet_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->tet_mic_ris) & $isolate->lab_isolate->tet_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tet_mic_ris) & $isolate->lab_isolate->tet_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -1985,6 +2374,7 @@
                         <option {{ isset($isolate->lab_isolate->tob_disk_ris) & $isolate->lab_isolate->tob_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->tob_disk_ris) & $isolate->lab_isolate->tob_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->tob_disk_ris) & $isolate->lab_isolate->tob_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tob_disk_ris) & $isolate->lab_isolate->tob_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->tob_mic_operand) & $isolate->lab_isolate->tob_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="tob_mic_operand">
@@ -2003,6 +2393,7 @@
                         <option {{ isset($isolate->lab_isolate->tob_mic_ris) & $isolate->lab_isolate->tob_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->tob_mic_ris) & $isolate->lab_isolate->tob_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->tob_mic_ris) & $isolate->lab_isolate->tob_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->tob_mic_ris) & $isolate->lab_isolate->tob_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
         
@@ -2017,6 +2408,7 @@
                         <option {{ isset($isolate->lab_isolate->sxt_disk_ris) & $isolate->lab_isolate->sxt_disk_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->sxt_disk_ris) & $isolate->lab_isolate->sxt_disk_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->sxt_disk_ris) & $isolate->lab_isolate->sxt_disk_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->sxt_disk_ris) & $isolate->lab_isolate->sxt_disk_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                       <td>
                         <select class=" form-select form-select-sm {{ isset($isolate->lab_isolate->sxt_mic_operand) & $isolate->lab_isolate->sxt_mic_operand != '' ? 'is-valid' : '' }}" aria-label=". form-select form-select-sm-lg example" name="sxt_mic_operand">
@@ -2035,6 +2427,7 @@
                         <option {{ isset($isolate->lab_isolate->sxt_mic_ris) & $isolate->lab_isolate->sxt_mic_ris == 'I' ? 'selected'  : '' }} value="I">I</option>
                         <option {{ isset($isolate->lab_isolate->sxt_mic_ris) & $isolate->lab_isolate->sxt_mic_ris == 'S' ? 'selected'  : '' }} value="S">S</option>
                         <option {{ isset($isolate->lab_isolate->sxt_mic_ris) & $isolate->lab_isolate->sxt_mic_ris == 'NS' ? 'selected'  : '' }} value="NS">NS</option>
+                        <option {{ isset($isolate->lab_isolate->sxt_mic_ris) & $isolate->lab_isolate->sxt_mic_ris == 'SDD' ? 'selected'  : '' }} value="SDD">SDD</option>
                       </select></td>
                     </tr>
                     </tbody>
@@ -2043,12 +2436,12 @@
                 
             </div>
 
-            {{-- <div class="row mb-3">
+            <div class="row mb-3">
               <div class="form-group">
-              <label for="comment">Comments</label>
-              <textarea class="form-control  {{ isset($isolate->lab_isolate->comments) & $isolate->lab_isolate->comments != '' ? 'is-valid' : '' }}" id="comment" name='comments' rows="2">{{ isset($isolate->lab_isolate->comments) ? $isolate->lab_isolate->comments  : '' }}</textarea>
+              <label for="comment">Remarks</label>
+              <textarea class="form-control  {{ isset($isolate->lab_isolate->remarks) & $isolate->lab_isolate->remarks != '' ? 'is-valid' : '' }}" id="comment" name='comments' rows="2">{{ isset($isolate->lab_isolate->remarks) ? $isolate->lab_isolate->remarks  : '' }}</textarea>
               </div>
-              </div> --}}
+              </div>
           
 
             {{-- end dito --}}

@@ -55,6 +55,34 @@ return new class extends Migration
             $table->text('amp_mic')->nullable();
             $table->text('amp_mic_ris')->nullable();
 
+
+            $table->text('sam_disk')->nullable();
+            $table->text('sam_disk_ris')->nullable();
+            $table->text('sam_mic_operand')->nullable();
+            $table->text('sam_mic')->nullable();
+            $table->text('sam_mic_ris')->nullable();
+
+
+            $table->text('chl_disk')->nullable();
+            $table->text('chl_disk_ris')->nullable();
+            $table->text('chl_mic_operand')->nullable();
+            $table->text('chl_mic')->nullable();
+            $table->text('chl_mic_ris')->nullable();
+
+
+            $table->text('ct_ctl_disk')->nullable();
+            $table->text('ct_ctl_disk_ris')->nullable();
+            $table->text('ct_ctl_mic_operand')->nullable();
+            $table->text('ct_ctl_mic')->nullable();
+            $table->text('ct_ctl_mic_ris')->nullable();
+
+
+            $table->text('tz_tzl_disk')->nullable();
+            $table->text('tz_tzl_disk_ris')->nullable();
+            $table->text('tz_tzl_mic_operand')->nullable();
+            $table->text('tz_tzl_mic')->nullable();
+            $table->text('tz_tzl_mic_ris')->nullable();
+
             $table->text('amc_disk')->nullable();
             $table->text('amc_disk_ris')->nullable();
             $table->text('amc_mic_operand')->nullable();
@@ -181,10 +209,18 @@ return new class extends Migration
             $table->text('sxt_mic')->nullable();
             $table->text('sxt_mic_ris')->nullable();
 
+
+            $table->text('col_disk')->nullable();
+            $table->text('col_disk_ris')->nullable();
+            $table->text('col_mic_operand')->nullable();
+            $table->text('col_mic')->nullable();
+            $table->text('col_mic_ris')->nullable();
+
             
             $table->date('date_released')->nullable();
             $table->text('verified_by')->nullable();
             $table->text('noted_by')->nullable();
+            $table->text('remarks')->nullable();
 
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by');

@@ -217,6 +217,19 @@
                             <td class="success">{{ isset($isolate->lab_isolate->cip_mic) ? $isolate->lab_isolate->cip_mic  : '' }}</td>
                             <td class="success">{{ isset($isolate->lab_isolate->cip_mic_ris) ? $isolate->lab_isolate->cip_mic_ris  : '' }}</td>
                           </tr>
+
+                          <tr>
+                            <td>Colistin</td>
+                            <td>{{ isset($isolate->site_isolate->col_disk) ? $isolate->site_isolate->col_disk  : '' }}</td>
+                            <td>{{ isset($isolate->site_isolate->col_disk_ris) ? $isolate->site_isolate->col_disk_ris  : '' }}</td>
+                            <td>{{ isset($isolate->site_isolate->col_mic) ? $isolate->site_isolate->col_mic  : '' }}</td>
+                            <td>{{ isset($isolate->site_isolate->col_mic_ris) ? $isolate->site_isolate->col_mic_ris  : '' }}</td>
+
+                            <td class="success">{{ isset($isolate->lab_isolate->col_disk) ? $isolate->lab_isolate->col_disk  : '' }}</td>
+                            <td class="success">{{ isset($isolate->lab_isolate->col_disk_ris) ? $isolate->lab_isolate->col_disk_ris  : '' }}</td>
+                            <td class="success">{{ isset($isolate->lab_isolate->col_mic) ? $isolate->lab_isolate->col_mic  : '' }}</td>
+                            <td class="success">{{ isset($isolate->lab_isolate->col_mic_ris) ? $isolate->lab_isolate->col_mic_ris  : '' }}</td>
+                          </tr>
                           <tr>
                             <td>Tetracycline</td>
                             <td>{{ isset($isolate->site_isolate->tcy_disk) ? $isolate->site_isolate->tcy_disk  : '' }}</td>
