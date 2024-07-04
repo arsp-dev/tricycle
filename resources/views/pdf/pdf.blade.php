@@ -33,13 +33,14 @@
                 <span> <b>www.ritm.gov.ph | arsp.com.ph | ISO 9001:2015 Certified</b> </span><br>
             </div>
 
-            <div class="small" style="position: absolute; top:0px; left: 800px; font-size: 10px;">
-              <span><b>TRICYCLE DATA FORM</b></span><br>
-              <span><b>FORM #</b></span><br>
+            <div class="small" style="position: absolute; top:15px; left: 880px; font-size: 9px;">
+              <span><b>TRICYCLE WP1 RESULT FORM</b></span><br>
+              <span><b>FORM # 2</b></span><br>
               <span><b>REV. # 0</b></span><br>
           </div>
       
                 <br><br>
+                <div><h6><center>CONFIRMATORY TEST RESULT</center></h6></div>
                <table class="table table-condensed table-bordered small" style="font-size: 9px;">
                    <thead>
                        <tr>
@@ -403,24 +404,25 @@
                         <td colspan="17">Notes: {{ $isolate->site_isolate->notes }}</td>
                       </tr>
                       --}}
-                      <tr>
+                      {{-- <tr>
                         <td colspan="13">Remarks (Site): {{ $isolate->site_isolate->remarks }}</td>
                         <td colspan="14">Remarks (ARSP): {{ $isolate->lab_isolate->remarks }}</td>
+                      </tr> --}}
+                      <tr>
+                        <td colspan="3"> <b>CT/CTL (ARSRL)</b> </td>
+                        <td colspan="12">{{ isset($isolate->lab_isolate->ct_ctl_disk) ? $isolate->lab_isolate->ct_ctl_disk: '' }}{{ isset($isolate->lab_isolate->ct_ctl_disk_ris) ? $isolate->lab_isolate->ct_ctl_disk_ris: '' }}{{ isset($isolate->lab_isolate->ct_ctl_mic_operand) ? $isolate->lab_isolate->ct_ctl_mic_operand : '' }}{{ isset($isolate->lab_isolate->ct_ctl_mic) ? $isolate->lab_isolate->ct_ctl_mic : '' }}  {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) ? $isolate->lab_isolate->ct_ctl_mic_ris : '' }}</td>
+
+                        <td colspan="12" rowspan="2">Remarks: {{ $isolate->lab_isolate->remarks }}</td>
                       </tr>
                       <tr>
-                        <td colspan="3"> <b>CT/CTL (ARSP)</b> </td>
-                        <td colspan="12">Disk: {{ isset($isolate->lab_isolate->ct_ctl_disk) ? $isolate->lab_isolate->ct_ctl_disk: '' }} - {{ isset($isolate->lab_isolate->ct_ctl_disk_ris) ? $isolate->lab_isolate->ct_ctl_disk_ris: '' }}</td>
-                        <td colspan="12">MIC: {{ isset($isolate->lab_isolate->ct_ctl_mic_operand) ? $isolate->lab_isolate->ct_ctl_mic_operand : '' }}{{ isset($isolate->lab_isolate->ct_ctl_mic) ? $isolate->lab_isolate->ct_ctl_mic : '' }} - {{ isset($isolate->lab_isolate->ct_ctl_mic_ris) ? $isolate->lab_isolate->ct_ctl_mic_ris : '' }}</td>
-                      </tr>
-                      <tr>
-                        <td colspan="3"> <b>TZ/TZL (ARSP)</b> </td>
-                        <td colspan="12">Disk: {{ isset($isolate->lab_isolate->tz_tzl_disk) ? $isolate->lab_isolate->tz_tzl_disk : '' }} - {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) ? $isolate->lab_isolate->tz_tzl_disk_ris: '' }}</td>
-                        <td colspan="12">MIC: {{ isset($isolate->lab_isolate->tz_tzl_mic_operand) ? $isolate->lab_isolate->tz_tzl_mic_operand : '' }}{{ isset($isolate->lab_isolate->tz_tzl_mic) ? $isolate->lab_isolate->tz_tzl_mic : '' }} - {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) ? $isolate->lab_isolate->tz_tzl_mic_ris : '' }}</td>
+                        <td colspan="3"> <b>TZ/TZL (ARSRL)</b> </td>
+                        {{-- <td colspan="12">Disk: {{ isset($isolate->lab_isolate->tz_tzl_disk) ? $isolate->lab_isolate->tz_tzl_disk : '' }} - {{ isset($isolate->lab_isolate->tz_tzl_disk_ris) ? $isolate->lab_isolate->tz_tzl_disk_ris: '' }}</td> --}}
+                        <td colspan="12">{{ isset($isolate->lab_isolate->tz_tzl_mic_operand) ? $isolate->lab_isolate->tz_tzl_mic_operand : '' }}{{ isset($isolate->lab_isolate->tz_tzl_mic) ? $isolate->lab_isolate->tz_tzl_mic : '' }}  {{ isset($isolate->lab_isolate->tz_tzl_mic_ris) ? $isolate->lab_isolate->tz_tzl_mic_ris : '' }}</td>
                       </tr>
                    </tbody>
                  </table>
                
-                 <table  class="table table-condensed table-bordered small text-center" style="border: none; font-size: 7px">
+                 <table  class="table table-condensed table-bordered small text-center" style="border: none; font-size: 8px">
                   {{-- <tr>
                     <td style="border: none;"></td>
                     <td style="border: none;"></td>
@@ -432,8 +434,8 @@
                   </tr> --}}
                   <tr>
                    <td style="border: none;  padding: 1px;  "> </td>
-                    <td style="border: none;  padding: 1px;  ">Date Printed: <br><br> {{ $date_now }} </td>
-                    <td style="border: none;  padding: 1px; ">Verified By: <br><br> Polle Krystle Macaranas / Marietta M. Lagrada </td>
+                    <td style="border: none;  padding: 1px;  ">Date Released: <br><br> _________________  </td>
+                    <td style="border: none;  padding: 1px; ">Verified By: <br><br> Polle Krystle Macaranas, RMT / Marietta M. Lagrada, RMT </td>
                     <td style="border: none;  padding: 1px;  ">Noted By: <br><br> Sonia B. Sia, MD</td>
                   </tr>
                  </table>

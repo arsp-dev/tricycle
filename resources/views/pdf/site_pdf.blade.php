@@ -21,30 +21,33 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
+  
     <div class="col-md-12">
-        <img class="img-fluid" src="{{ public_path('images/LOGOS.png') }}" style="width: 230px; height: 80px; position: relative; margin-right: 70px;">
+      <img class="img-fluid" src="{{ public_path('images/rmc_header.png') }}" style="width: 1010px; position: relative; margin-right: 70px;">
+        {{-- <img class="img-fluid" src="{{ public_path('images/rmc_header.png') }}" style="width: 230px; height: 80px; position: relative; margin-right: 70px;"> --}}
        
            
-            <div class="text-center small ml-3" style="position: absolute; top:0px; font-size: 10px;">
+            {{-- <div class="text-center small ml-3" style="position: absolute; top:0px; font-size: 10px;">
                 <span><b>Research Institue for Tropical Medicine - Department of Health</b></span><br>
                 <span><b>Antimicrobial Resistance Surveillance Reference Laboratory</b></span><br>
                 <span>9002 Research Drive, Filinvest Corporate City, Alabang, Muntinlupa City 1781 Philippines</span><br>
                 <span>T:(632) 8809-9763/8807-2328 to 32 loc. 243 | F: (632) 8809-9763</span><br>
                 <span> <b>www.ritm.gov.ph | arsp.com.ph | ISO 9001:2015 Certified</b> </span><br>
-            </div>
+            </div> --}}
 
-            <div class="small" style="position: absolute; top:0px; left: 800px; font-size: 10px;">
-              <span><b>TRICYCLE DATA FORM</b></span><br>
-              <span><b>FORM #</b></span><br>
+            <div class="small" style="position: absolute; top:15px; left: 880px; font-size: 9px;">
+              <span><b>TRICYCLE WP1 RESULT FORM</b></span><br>
+              <span><b>FORM # 1</b></span><br>
               <span><b>REV. # 0</b></span><br>
           </div>
       
                 <br><br>
+                <div><h6><center>CULTURE AND SUSCEPTIBILITY TEST RESULT</center></h6></div>
                <table class="table table-condensed table-bordered small" style="font-size: 9px;">
                    <thead>
                        <tr>
-                           <th colspan="14">INSTITUTE NAME: {{ Str::of($isolate->hospital->hospital_name)->upper() }}</th>
-                           <th class="text-right" colspan="13">PATIENT ID: {{ $isolate->patient_id }}</th>
+                           <th colspan="27">PATIENT ID: {{ $isolate->patient_id }}</th>
+                           {{-- <th class="text-right" colspan="13">PATIENT ID: {{ $isolate->patient_id }}</th> --}}
                        </tr> 
                        
                    </thead>
@@ -72,14 +75,14 @@
                       <th colspan="2" style="background-color: #D3D3D3; color: black; text-align:center !important">ISOLATE INFORMATION</th>
                        <td colspan="7">Specimen Type: {{ $isolate->site_isolate->specimen_type }}</td>
                        <td colspan="9">Date of Sample Collection: {{ isset($isolate->site_isolate->date_of_sample_collection) ? $isolate->site_isolate->date_of_sample_collection->format('m/d/Y') : '' }}</td>
-                       <td colspan="9">Date received in ARSRL: {{ isset($isolate->site_isolate->date_received_arsrl) ? $isolate->site_isolate->date_received_arsrl->format('m/d/Y') : '' }}</td>
+                       <td colspan="9">Date of Testing: {{ isset($isolate->site_isolate->date_of_testing) ? $isolate->site_isolate->date_of_testing->format('m/d/Y') : '' }}</td>
                      </tr>
             
                      <tr >
                       <th colspan="2" style="background-color: #D3D3D3; color: black; text-align:center !important">CULTURE RESULTS</th>
-                      <td colspan="7">Bacterial Identification: {!! $isolate->site_isolate->bacterial_identification !!}</td>
-                      <td colspan="9">ESBL: {{ $isolate->site_isolate->esbl }}</td>
-                      <td colspan="9">Date of Testing: {{ isset($isolate->site_isolate->date_of_testing) ? $isolate->site_isolate->date_of_testing->format('m/d/Y') : '' }}</td>
+                      <td colspan="13">Bacterial Identification: {!! $isolate->site_isolate->bacterial_identification !!}</td>
+                      <td colspan="12">ESBL: {{ $isolate->site_isolate->esbl }}</td>
+                      {{-- <td colspan="9">Date of Testing: {{ isset($isolate->site_isolate->date_of_testing) ? $isolate->site_isolate->date_of_testing->format('m/d/Y') : '' }}</td> --}}
                      </tr>
                     
                     
@@ -339,10 +342,10 @@
 
                       <tr>
                         <th colspan="2" style="background-color: #D3D3D3; color: black;"></th>
-                        <td colspan="7">Remarks: {{ isset($isolate->site_isolate->remarks) ? $isolate->site_isolate->remarks : '' }}</td>
-                        <td colspan="6">Date Released: {{ isset($isolate->site_isolate->date_released) ? $isolate->site_isolate->date_released->format('m/d/Y') : '' }}</td>
-                        <td colspan="6">Verified by: {{ $isolate->site_isolate->verified_by }}</td>
-                        <td colspan="6">Noted by: {{ $isolate->site_isolate->noted_by }}</td>
+                        <td colspan="25">Remarks: {{ isset($isolate->site_isolate->remarks) ? $isolate->site_isolate->remarks : '' }}</td>
+                        {{-- <td colspan="6">Date Released: {{ isset($isolate->site_isolate->date_released) ? $isolate->site_isolate->date_released->format('m/d/Y') : '' }}</td> --}}
+                        {{-- <td colspan="6">Verified by: {{ $isolate->site_isolate->verified_by }}</td> --}}
+                        {{-- <td colspan="6">Noted by: {{ $isolate->site_isolate->noted_by }}</td> --}}
                        
                       </tr>
 
@@ -358,7 +361,7 @@
                   </tr>
                   <tr>
                    <td style="border: none;"> </td>
-                    <td style="border: none;">Date Printed: <br><br> {{ $date_now }} </td>
+                    <td style="border: none;">_________________ <br><br> Date Released </td>
                     <td style="border: none;">_________________ <br><br> Medical Technologist </td>
                     <td style="border: none;">_________________ <br><br> Pathologist</td>
                   </tr>
