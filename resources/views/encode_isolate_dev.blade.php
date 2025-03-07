@@ -2438,8 +2438,8 @@
 
             <div class="row mb-3">
               <div class="form-group">
-              <label for="comment">Remarks</label>
-              <textarea class="form-control  {{ isset($isolate->lab_isolate->remarks) & $isolate->lab_isolate->remarks != '' ? 'is-valid' : '' }}" id="comment" name='comments' rows="2">{{ isset($isolate->lab_isolate->remarks) ? $isolate->lab_isolate->remarks  : '' }}</textarea>
+              <label for="remarks">Remarks</label>
+              <textarea class="form-control  {{ isset($isolate->lab_isolate->remarks) & $isolate->lab_isolate->remarks != '' ? 'is-valid' : '' }}" id="remarks" name='remarks' rows="2">{{ isset($isolate->lab_isolate->remarks) ? $isolate->lab_isolate->remarks  : '' }}</textarea>
               </div>
               </div>
           
